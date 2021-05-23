@@ -1,0 +1,22 @@
+﻿@using Blazor.Contentful.Blog.Starter.Shared.Components.SocialLinks.svg;
+@inherits SocialLinksBase
+
+<div class="social-links">
+    <ul class="social-links__list">
+        @foreach (var link in SocialLinkList)
+        {
+            <li key="@link.Name"
+                class="social-links__list-item">
+                <a class="social-links__list-item-link"
+                   style="color: @FillColor"
+                   href="@link.Url"
+                   aria-label="@link.AriaLabel"
+                   target="_blank"
+                   rel="nofollow noreferrer">
+                    <DynamicComponent Type="link.SVG" />
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+

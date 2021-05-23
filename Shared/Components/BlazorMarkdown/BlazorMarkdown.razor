@@ -1,0 +1,14 @@
+﻿
+@((MarkupString)MarkdownHtml)
+
+@code {
+    [Parameter]
+    public string Markdown { get; set; } = string.Empty;
+
+    public string MarkdownHtml { get; set; } = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        MarkdownHtml = Markdig.Markdown.ToHtml(Markdown ?? string.Empty);
+    }
+}

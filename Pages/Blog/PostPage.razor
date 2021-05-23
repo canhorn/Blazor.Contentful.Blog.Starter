@@ -1,0 +1,16 @@
+@page "/blog/{slug}"
+@inherits PostPageBase
+
+@if (Post is not null)
+{
+    <PageMeta Title="@Post.Title"
+              Description="@Post.Excerpt"
+              Url="@($"{Config.PageMeta.BlogIndex.Url}/{Post.Slug}")"
+              Canonical="@(Post.ExternalUrl.IsNotNullOrWhitespace() ? Post.ExternalUrl : "false")" />
+
+    <ContentWrapper>
+        <Post Post="Post" />
+    </ContentWrapper>
+}
+
+

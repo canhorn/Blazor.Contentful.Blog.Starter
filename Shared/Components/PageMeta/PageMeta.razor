@@ -1,0 +1,80 @@
+﻿@inherits StandardComponentBase
+
+<Title Value="@SiteTitle"></Title>
+
+@if (Canonical.IsNotNullOrWhitespace())
+{
+
+    <Link rel="canonical" href="@Canonical" />
+}
+
+<Link rel="alternate"
+      type="application/rss+xml"
+      title="@(Localizer["RSS Feed for {0}", Config.Site.Domain])"
+      href="@($"https://{Config.Site.Domain}/feed.xml")" />
+
+<Meta name="title"
+      content="@SiteTitle" />
+<Meta property="og:title"
+      content="@Title" />
+<Meta property="twitter:title"
+      content="@Title" />
+
+<Meta name="description"
+      content="@Description" />
+<Meta property="og:description"
+      content="@Description" />
+<Meta property="twitter:description"
+      content="@Description" />
+
+<Meta property="og:url"
+      content="@Url" />
+<Meta property="twitter:url"
+      content="@Url" />
+
+<Meta property="og:image"
+      content="@OpenGraph.GenerateImageUrl(Title)" />
+<Meta property="twitter:image"
+      content="@OpenGraph.GenerateImageUrl(Title)" />
+
+<Meta name="twitter:card"
+      content="summary_large_image" />
+<Meta name="twitter:site"
+      content="@($"@{Config.PageMeta.OpenGraph.TwitterUser}")" />
+<Meta name="twitter:creator"
+      content="@($"@{Config.PageMeta.OpenGraph.TwitterUser}")" />
+
+<Link rel="icon"
+      href="/favicon.ico" />
+
+<Link rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png" />
+<Link rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png" />
+<Link rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon-16x16.png" />
+<Link rel="manifest" href="/site.webmanifest" />
+<Link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0f111a" />
+<Meta name="msapplication-TileColor" content="#b91d47" />
+<Meta name="theme-color" content="#f11012" />
+
+@code {
+    [CascadingParameter]
+    public SiteConfig Config { get; set; } = null!;
+
+    [Parameter]
+    public string Title { get; set; } = string.Empty;
+    [Parameter]
+    public string Description { get; set; } = string.Empty;
+    [Parameter]
+    public string Url { get; set; } = string.Empty;
+    [Parameter]
+    public string Canonical { get; set; } = string.Empty;
+
+    public string SiteTitle => $"{Title} | {Config.Site.Title}";
+}

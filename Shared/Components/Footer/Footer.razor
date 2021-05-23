@@ -1,0 +1,13 @@
+﻿@inherits StandardComponentBase
+
+<footer class="footer">
+    <SocialLinks FillColor="#b7ded0" />
+    <p class="footer__copyright">
+        @Localizer["© {0} {1} All Rights Reserved.", Config.Site.Owner, DateTime.Now.Year]
+    </p>
+</footer>
+
+@code {
+    [CascadingParameter]
+    public SiteConfig Config { get; set; } = null!;
+}

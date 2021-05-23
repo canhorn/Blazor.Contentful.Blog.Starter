@@ -1,0 +1,24 @@
+﻿@using Blazor.Contentful.Blog.Starter.Shared.Components.Post.ExternalUrl
+@using Blazor.Contentful.Blog.Starter.Shared.Components.Post.Author
+@inherits PostBase
+
+<article class="page">
+    @if (Post.ExternalUrl.IsNotNullOrWhitespace())
+    {
+        <ExternalUrl url="@Post.ExternalUrl" />
+    }
+    <PublishedDate Date="@Post.Date" />
+
+    @if (Post.Tags is not null)
+    {
+        <Tags TagList="Post.Tags" />
+    }
+    <h1 class="heading__h1">@Post.Title</h1>
+
+    <RichTextPageContent Body="@Post.Body" />
+
+    @if (Post.Author is not null)
+    {
+        <AuthorCard Author="@Post.Author" />
+    }
+</article>

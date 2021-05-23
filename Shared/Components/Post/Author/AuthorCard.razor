@@ -1,0 +1,72 @@
+﻿@using Blazor.Contentful.Blog.Starter.Contentful.Model
+@inherits StandardComponentBase
+
+<div class="author">
+    @if (Author.Image is not null)
+    {
+        <div class="author__img-container --sized">
+            <img class="author__img --sized"
+                 src="@(Author.Image.File.Url)"
+                 alt="@Author.Image.Description"
+                 height="@Author.Image.File.Details.Image.Height"
+                 width="@Author.Image.File.Details.Image.Width" />
+        </div>
+    }
+    <div class="author__details-container">
+        <h2 class="author__name">@Author.Name</h2>
+        <p class="author__description">
+            @Author.Description
+        </p>
+        @if (HasLinks)
+        {
+            <div class="author__links">
+                @if (Author.TwitterUsername.IsNotNullOrWhitespace())
+                {
+                    <a class="inline-link author__link-text"
+                       href="@($"https://twitter.com/{Author.TwitterUsername}")"
+                       target="_blank"
+                       rel="nofollow noreferrer">
+                        @Localizer["Twitter"]
+                    </a>
+                }
+                @if (Author.TwitchUsername.IsNotNullOrWhitespace())
+                {
+                    <a class="inline-link author__link-text"
+                       href="@($"https://twitch.tv/{Author.TwitchUsername}")"
+                       target="_blank"
+                       rel="nofollow noreferrer">
+                        @Localizer["Twitch"]
+                    </a>
+                }
+                @if (Author.GitHubUsername.IsNotNullOrWhitespace())
+                {
+                    <a class="inline-link author__link-text"
+                       href="@($"https://github.com/{Author.GitHubUsername}")"
+                       target="_blank"
+                       rel="nofollow noreferrer">
+                        @Localizer["GitHub"]
+                    </a>
+                }
+                @if (Author.WebsiteUrl.IsNotNullOrWhitespace())
+                {
+                    <a class="inline-link author__link-text"
+                       href="@Author.WebsiteUrl"
+                       target="_blank"
+                       rel="nofollow noreferrer">
+                        @Localizer["Website"]
+                    </a>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Person Author { get; set; } = null!;
+
+    public bool HasLinks => Author.TwitterUsername.IsNotNullOrWhitespace()
+        || Author.TwitchUsername.IsNotNullOrWhitespace()
+        || Author.GitHubUsername.IsNotNullOrWhitespace()
+        || Author.WebsiteUrl.IsNotNullOrWhitespace();
+}

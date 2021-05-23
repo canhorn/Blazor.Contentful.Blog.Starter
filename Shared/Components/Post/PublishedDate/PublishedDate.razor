@@ -1,0 +1,9 @@
+﻿<time class="published-date"
+      dateTime="@Date.FormatDateForDateTime()">
+    @Date.FormatDateForDisplay()
+</time>
+
+@code {
+    [Parameter]
+    public string Date { get; set; } = string.Empty;
+}

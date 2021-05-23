@@ -1,0 +1,11 @@
+@inherits MainLayoutBase
+
+<CascadingValue Name="Pathname" Value="@Pathname">
+    @if (IsPreview)
+    {
+        <PreviewBanner />
+    }
+    <Header />
+    <main>@Body</main>
+    <Footer />
+</CascadingValue>

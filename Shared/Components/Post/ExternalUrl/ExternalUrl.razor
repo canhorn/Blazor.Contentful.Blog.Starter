@@ -1,0 +1,29 @@
+﻿@inherits StandardComponentBase
+
+<div class="external-url">
+    <span class="external-url__svg-container">
+        <InfoSvg />
+    </span>
+    <p class="external-url__text">
+        @Localizer["Originally published on "]
+        <a class="external-url__link"
+           href="@Url"
+           target="_blank"
+           rel="nofollow noreferrer">
+            @FormatUrlForDisplay(Url)
+        </a>
+    </p>
+</div>
+
+
+@code {
+    [Parameter]
+    public string Url { get; set; } = string.Empty;
+
+    public string FormatUrlForDisplay(
+        string url
+    )
+    {
+        return new Uri(url).Host;
+    }
+}

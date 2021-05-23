@@ -1,0 +1,65 @@
+﻿@using Blazor.Contentful.Blog.Starter.Contentful.Model.Page
+
+@if (Data is not null)
+{
+    var image = Data.Image;
+    var headline = Data.Headline;
+    var subHeading = Data.SubHeading;
+    var ctaText = Data.CtaText;
+    var internalLink = Data.InternalLink;
+    var externalLink = Data.ExternalLink;
+
+    <section class="hero-banner">
+		@if(image is not null && image.File is not null)
+		{
+			<div class="hero-banner__bg-img-container">
+				<img class="hero-banner__bg-img"
+					 src="@image.File.Url"
+					 alt="@image.Description" />
+			</div>
+		}
+        <span class="hero-banner__overlay"></span>
+        <div class="hero-banner__inner">
+            <div class="hero-banner__text-container">
+				@if(headline.IsNotNullOrWhitespace())
+				{
+					<h1 class="hero-banner__headline">
+						@headline
+					</h1>
+				}
+				@if(subHeading.IsNotNullOrWhitespace())
+				{
+					<h2 class="hero-banner__subheading">
+						@subHeading
+					</h2>
+				}
+            </div>
+			@if(internalLink.IsNotNullOrWhitespace()
+				&& ctaText.IsNotNullOrWhitespace())
+			{
+				<div class="hero-banner__cta-container">
+					<NavLink class="button" href="@internalLink">
+						@ctaText
+					</NavLink>
+				</div>
+			}
+			@if(externalLink.IsNotNullOrWhitespace()
+				&& ctaText.IsNotNullOrWhitespace())
+			{
+				<div class="hero-banner__cta-container">
+					<a href="@externalLink"
+					   class="--button"
+					   rel="nofollow noreferrer"
+					   target="_blank">
+					   @ctaText
+					</a>
+				</div>
+			}   
+        </div>
+    </section>
+}
+
+@code {
+    [Parameter]
+    public PageHeroBanner? Data { get; set; }
+}

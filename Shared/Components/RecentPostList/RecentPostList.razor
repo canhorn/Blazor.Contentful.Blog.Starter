@@ -1,0 +1,32 @@
+﻿@inherits RecentPostListBase
+
+<h2 class="recent-post-list__header">
+    @Localizer["Recent Articles"]
+</h2>
+<ol class="content-list">
+    @foreach (var post in Posts)
+    {
+        <li @key="post.Sys.Id">
+            <article class="content-list__post">
+                <PublishedDate Date="@post.Date" />
+            </article>
+            <a class="content-list__title-link"
+               href="/blog/@post.Slug">
+                <h2 class="content-list__title">
+                    @post.Title
+                </h2>
+            </a>
+            @if (post.Tags is not null)
+            {
+                <Tags TagList="post.Tags" />
+            }
+            <div class="content-list__excerpt">
+                <BlazorMarkdown Markdown="@post.Excerpt" />
+            </div>
+        </li>
+    }
+</ol>
+<a class="--button"
+   href="@Config.PageMeta.BlogIndex.Slug">
+    @Localizer["See More Articles"]
+</a>

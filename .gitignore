@@ -1,0 +1,10 @@
+dist
+node_modules
+bin
+obj
+appsettings.*.json
+.vs
+*.csproj.user
+Properties/PublishProfiles
+Properties/ServiceDependencies
+Published

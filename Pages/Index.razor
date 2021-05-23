@@ -1,0 +1,29 @@
+@page "/"
+@inherits IndexBase
+
+@{
+    var pageTitle = PageContent.Title.IsNotNullOrWhitespace()
+        ? PageContent.Title 
+        : Localizer["Home"];
+    var pageDescription = PageContent.Description.IsNotNullOrWhitespace()
+        ? PageContent.Description
+        : Localizer["Welcome to the Blazor Contentful blog Starter"];
+}
+<PageMeta Title="@pageTitle"
+          Description="@pageDescription"
+          Url="@Config.PageMeta.Home.Url"/>
+
+<HeroBanner Data="PageContent.HeroBanner" />
+
+<ContentWrapper>
+    @if (PageContent is not null
+        && PageContent.Body is not null)
+    {
+        <PageContentWrapper>
+            <RichTextPageContent Body="PageContent.Body" />
+        </PageContentWrapper>
+    }
+    <RecentPostList />
+</ContentWrapper>
+
+

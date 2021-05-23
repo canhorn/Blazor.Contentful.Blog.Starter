@@ -1,0 +1,66 @@
+﻿@using Blazor.Contentful.Blog.Starter.Shared.Components.PostList.Pagination.svg
+@inherits StandardComponentBase
+
+<div class="pagination">
+    <ol class="pagination__list">
+        <li class="pagination__list-item">
+            @if (PrevDisabled)
+            {
+                <span class="pagination__list-item__disabled">
+                    <span class="pagination__chevron-container__left">
+                        <ChevronLeft />
+                    </span>
+                    <span>@Localizer["Previous Page"]</span>
+                </span>
+            }
+            else
+            {
+                <a href="@PrevPageUrl">
+                    <span class="pagination__chevron-container__left">
+                        <ChevronLeft />
+                    </span>
+                    <span>@Localizer["Previous Page"]</span>
+                </a>
+            }
+        </li>
+        <li class="pagination__list-item pagination__list-item__page-descriptor">
+            @Localizer["Page {0} of {1}", CurrentPage, TotalPages]
+        </li>
+        <li class="pagination__list-item">
+            @if (NextDisabled)
+            {
+                <span class="pagination__list-item__disabled">
+                    <span>@Localizer["Next Page"]</span>
+                    <span class="pagination__chevron-container__right">
+                        <ChevronRight />
+                    </span>
+                </span>
+            }
+            else
+            {
+                <a href="@NextPageUrl">
+                    <span>@Localizer["Next Page"]</span>
+                    <span class="pagination__chevron-container__right">
+                        <ChevronRight />
+                    </span>
+                </a>
+            }
+        </li>
+    </ol>
+</div>
+
+@code {
+    [Parameter]
+    public int TotalPages { get; set; }
+    [Parameter]
+    public int CurrentPage { get; set; }
+    [Parameter]
+    public bool NextDisabled { get; set; }
+    [Parameter]
+    public bool PrevDisabled { get; set; }
+
+    public string PrevPageUrl => CurrentPage == 2
+        ? "/blog"
+        : $"/blog/page/{CurrentPage - 1}";
+    public string NextPageUrl => $"/blog/page/{CurrentPage + 1}";
+}

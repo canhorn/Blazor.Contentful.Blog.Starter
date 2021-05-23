@@ -1,0 +1,31 @@
+@page "/blog"
+@inherits BlogBase 
+
+@{
+    var pageTitle = PageContent.Title.IsNotNullOrWhitespace()
+        ? PageContent.Title 
+        : Localizer["Blog"];
+    var pageDescription = PageContent.Description.IsNotNullOrWhitespace()
+        ? PageContent.Description
+        : Localizer["Articles | Blazor Contentful blogo starter"];
+}
+<PageMeta Title="@pageTitle"
+          Description="@pageDescription"
+          Url="@Config.PageMeta.Home.Url"/>
+
+<HeroBanner Data="PageContent.HeroBanner" />
+
+<ContentWrapper>
+    @if (PageContent is not null
+        && PageContent.Body is not null)
+    {
+        <PageContentWrapper>
+            <RichTextPageContent Body="PageContent.Body" />
+        </PageContentWrapper>
+    }
+    <PostList Posts="PostSummaries"
+              TotalPages="TotalPages"
+              CurrentPage="CurrentPage"/>
+</ContentWrapper>
+
+

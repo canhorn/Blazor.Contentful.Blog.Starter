@@ -1,0 +1,45 @@
+﻿@using Blazor.Contentful.Blog.Starter.Shared.Components.Header.svg
+
+<header class="header">
+    <div class="header__logo-container">
+        <NavLink href="/"
+                 class="header__logo-container-link">
+            <Logo />
+        </NavLink>
+    </div>
+    <nav class="header__nav" role="navigation">
+        <ul class="header__nav-list">
+            @foreach (var link in Config.MenuLinks)
+            {
+                var pathname = Pathname;
+                var onBlogPost = pathname == Config.PageMeta.Post.Slug
+                    && link.Path == Config.PageMeta.BlogIndex.Slug;
+                var onBlogIndexPage = pathname == Config.PageMeta.BlogIndexPage.Slug
+                    && link.Path == Config.PageMeta.BlogIndex.Slug;
+
+                var isActive = onBlogPost
+                    || onBlogIndexPage
+                    || pathname == link.Path;
+                var isActiveClass = isActive
+                    ? "--active"
+                    : string.Empty;
+
+                <li key="@link.DisplayName"
+                    class="header__nav-list-item @isActiveClass">
+                    <NavLink class="fucn header__nav-list-item-link"
+                             href="@link.Path">
+                        @link.DisplayName
+                    </NavLink>
+                </li>
+            }
+        </ul>
+    </nav>
+    <SocialLinks />
+</header>
+
+@code {
+    [CascadingParameter]
+    public SiteConfig Config { get; set; } = null!;
+    [CascadingParameter(Name = "Pathname")]
+    public string Pathname { get; set; } = "/";
+}

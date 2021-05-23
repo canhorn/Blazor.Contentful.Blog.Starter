@@ -1,0 +1,17 @@
+﻿@inherits AppBase
+
+<CascadingValue Value="SiteConfig">
+    <CascadingValue Name="IsPreview" Value="false">
+        <Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
+            <Found Context="routeData">
+                <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            </Found>
+            <NotFound>
+                <LayoutView Layout="@typeof(MainLayout)">
+                    <Blazor.Contentful.Blog.Starter.Pages.NotFound />
+                </LayoutView>
+            </NotFound>
+        </Router>
+    </CascadingValue>
+</CascadingValue>
+
