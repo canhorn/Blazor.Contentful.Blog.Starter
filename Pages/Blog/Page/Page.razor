@@ -11,7 +11,7 @@
 }
 <PageMeta Title="@Localizer["{0} Page {1}", pageTitle, CurrentPage]"
           Description="@pageDescription"
-          Url="@($"{Config.PageMeta.BlogIndex.Url}/page/{CurrentPage}")"/>
+          Url="@($"{Config.GetSiteUrl(Config.PageMeta.BlogIndex.Url)}/page/{CurrentPage}")"/>
 
 <HeroBanner Data="PageContent.HeroBanner" />
 

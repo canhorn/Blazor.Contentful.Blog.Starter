@@ -49,7 +49,7 @@
             body.Append(
                 urlTemplate.Replace(
                     "{{LOC}}",
-                    $"{_siteConfig.PageMeta.Home.Url}"
+                    $"{_siteConfig.GetSiteUrl(_siteConfig.PageMeta.Home.Url)}"
                 ).Replace(
                     "{{LASTMOD}}",
                     DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssK")
@@ -59,7 +59,7 @@
             body.Append(
                 urlTemplate.Replace(
                     "{{LOC}}",
-                    $"{_siteConfig.PageMeta.BlogIndex.Url}"
+                    $"{_siteConfig.GetSiteUrl(_siteConfig.PageMeta.BlogIndex.Url)}"
                 ).Replace(
                     "{{LASTMOD}}",
                     DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssK")
@@ -74,7 +74,7 @@
                 body.Append(
                     urlTemplate.Replace(
                         "{{LOC}}",
-                        $"{_siteConfig.PageMeta.BlogIndex.Url}/{blogPostSlug}"
+                        $"{_siteConfig.GetSiteUrl(_siteConfig.PageMeta.BlogIndex.Url)}/{blogPostSlug}"
                     ).Replace(
                         "{{LASTMOD}}",
                         DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssK")
@@ -93,7 +93,7 @@
                 body.Append(
                     urlTemplate.Replace(
                         "{{LOC}}",
-                        $"{_siteConfig.PageMeta.BlogIndex.Url}/page/{page}"
+                        $"{_siteConfig.GetSiteUrl(_siteConfig.PageMeta.BlogIndex.Url)}/page/{page}"
                     ).Replace(
                         "{{LASTMOD}}",
                         DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssK")

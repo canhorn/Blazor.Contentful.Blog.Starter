@@ -11,7 +11,7 @@
 }
 <PageMeta Title="@pageTitle"
           Description="@pageDescription"
-          Url="@Config.PageMeta.Home.Url"/>
+          Url="@Config.GetSiteUrl(Config.PageMeta.BlogIndex.Url)"/>
 
 <HeroBanner Data="PageContent.HeroBanner" />
 
