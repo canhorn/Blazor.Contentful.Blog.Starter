@@ -18,6 +18,11 @@
     public class SdkContentfulApi
         : ContentfulApi
     {
+        private static readonly ConcurrentDictionary<string, PageContent> GetPageContentBySlugCache = new();
+        private static readonly ConcurrentDictionary<string, (int Total, IEnumerable<BlogPost> Items)> GetPaginatedPostSummariesCache = new();
+        private static readonly ConcurrentDictionary<string, (int Total, IEnumerable<BlogPost> Items)> GetPaginatedSlugsCache = new();
+        private static readonly ConcurrentDictionary<string, BlogPost> GetPostBySlugCache = new();
+
         private readonly ILogger<SdkContentfulApi> _logger;
         private readonly IContentfulClient _client;
         private readonly SiteConfig _siteConfig;
@@ -33,9 +38,14 @@
             _siteConfig = siteConfigOptions.Value;
         }
 
-        public void BustCache()
+        public Task BustCache()
         {
+            GetPageContentBySlugCache.Clear();
+            GetPaginatedPostSummariesCache.Clear();
+            GetPaginatedSlugsCache.Clear();
+            GetPostBySlugCache.Clear();
 
+            return Task.CompletedTask;
         }
 
         public Task CallContentful(string query, ContentfulOptions options = default)
@@ -84,8 +94,6 @@
                 return new List<string>();
             }
         }
-
-        private static readonly ConcurrentDictionary<string, PageContent> GetPageContentBySlugCache = new();
 
         public async Task<PageContent?> GetPageContentBySlug(
             string slug,
@@ -144,8 +152,6 @@
         {
             throw new NotImplementedException();
         }
-
-        private static readonly ConcurrentDictionary<string, (int Total, IEnumerable<BlogPost> Items)> GetPaginatedPostSummariesCache = new();
 
         public async Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedPostSummaries(
             int page,
@@ -210,8 +216,6 @@
             }
         }
 
-        private static readonly ConcurrentDictionary<string, (int Total, IEnumerable<BlogPost> Items)> GetPaginatedSlugsCache = new();
-
         public async Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedSlugs(
             int page,
             ContentfulOptions options = default
@@ -274,8 +278,6 @@
                 return (0, new List<BlogPost>());
             }
         }
-
-        private static ConcurrentDictionary<string, BlogPost> GetPostBySlugCache = new();
 
         public async Task<BlogPost?> GetPostBySlug(
             string slug,

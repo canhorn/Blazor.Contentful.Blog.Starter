@@ -25,6 +25,13 @@
             _siteConfig = siteConfigOptions.Value;
         }
 
+        public Task BustCache()
+        {
+            Cached_XML = string.Empty;
+
+            return Task.CompletedTask;
+        }
+
         public async Task<string> Generate()
         {
             if (Cached_XML.IsNullOrWhitespace())

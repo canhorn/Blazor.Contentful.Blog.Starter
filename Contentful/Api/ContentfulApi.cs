@@ -1,15 +1,15 @@
 ﻿namespace Blazor.Contentful.Blog.Starter.Contentful.Api
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Blazor.Contentful.Blog.Starter.CacheBusting.Api;
     using Blazor.Contentful.Blog.Starter.Contentful.Model;
     using Blazor.Contentful.Blog.Starter.Contentful.Model.Blog;
     using Blazor.Contentful.Blog.Starter.Contentful.Model.Page;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
 
     public interface ContentfulApi
+        : BustCache
     {
-        void BustCache();
-
         Task<PageContent?> GetPageContentBySlug(
             string slug,
             ContentfulOptions options = default

@@ -2,6 +2,8 @@ namespace Blazor.Contentful.Blog.Starter
 {
     using System.Collections.Generic;
     using System.Globalization;
+    using Blazor.Contentful.Blog.Starter.CacheBusting.Api;
+    using Blazor.Contentful.Blog.Starter.CacheBusting.Manual;
     using Blazor.Contentful.Blog.Starter.Contentful.Api;
     using Blazor.Contentful.Blog.Starter.Contentful.Sdk;
     using Blazor.Contentful.Blog.Starter.Data;
@@ -25,20 +27,18 @@ namespace Blazor.Contentful.Blog.Starter
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            // TODO: Implement WebHook listener
-            // This will be used to cache bust the Content/Blogs
-
-            // Setup Sitemap.xml
+            // Setup Sitemap Services
             services.AddSingleton<SitemapGenerator, DynamicSitemapGenerator>();
 
             // I18n Services
+            // This registers the supported Locales for localization.
+            // As more platform locales are supported, Localization Resource files can be added in 
+            // ~/Resources/Localization/LocalizationResource-**.resx. 
             services
                 .AddLocalization(options => options.ResourcesPath = "Resources")
                 .Configure<RequestLocalizationOptions>(
@@ -58,12 +58,22 @@ namespace Blazor.Contentful.Blog.Starter
                     }
                 );
 
+            // Setup Site and Contentful Services
             services.Configure<SiteConfig>(Configuration);
             services.AddContentful(Configuration);
             services.AddSingleton<ContentfulApi, SdkContentfulApi>();
+
+            // Setup Cache Busting
+            services.AddSingleton<CacheBuster, ManualCacheBuster>()
+                // These are registered manually, as more services are added that have a cache,
+                // they should follow the patterns here.
+                .AddTransient<BustCache>(
+                    services => services.GetRequiredService<ContentfulApi>()
+                ).AddTransient<BustCache>(
+                    services => services.GetRequiredService<SitemapGenerator>()
+                );
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -85,14 +95,33 @@ namespace Blazor.Contentful.Blog.Starter
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
-                endpoints.MapGet("/sitemap.xml", async context =>
-                {
-                    await context.Response.WriteAsync(
+
+                // Here we register <domain>/sitemap.xml to return the generated Sitemap
+                endpoints.MapGet(
+                    "/sitemap.xml",
+                    async context =>
+                    {
+                        await context.Response.WriteAsync(
+                            await context.RequestServices
+                                .GetRequiredService<SitemapGenerator>()
+                                .Generate()
+                        );
+                    }
+                );
+
+                // This is our cache busting endpoint that when called will trigger the CacheBuster service.
+                // This can be registered in Contentful, so any changes in Contentful will trigger clear the cache.
+                endpoints.MapPost(
+                    "/webhook/cache-buster",
+                    async context =>
+                    {
                         await context.RequestServices
-                            .GetRequiredService<SitemapGenerator>()
-                            .Generate()
-                    );
-                });
+                            .GetRequiredService<CacheBuster>()
+                            .BustCache();
+                        await context.Response.WriteAsync("Ok");
+                    }
+                );
+
                 endpoints.MapFallbackToPage("/_Host");
             });
         }
