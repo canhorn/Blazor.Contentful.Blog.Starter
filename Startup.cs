@@ -3,7 +3,7 @@ namespace Blazor.Contentful.Blog.Starter
     using System.Collections.Generic;
     using System.Globalization;
     using Blazor.Contentful.Blog.Starter.Contentful.Api;
-    using Blazor.Contentful.Blog.Starter.Contentful.GraphQL;
+    using Blazor.Contentful.Blog.Starter.Contentful.Sdk;
     using Blazor.Contentful.Blog.Starter.Data;
     using Blazor.Contentful.Blog.Starter.SitemapGeneration.Api;
     using Blazor.Contentful.Blog.Starter.SitemapGeneration.Generators;
@@ -60,7 +60,7 @@ namespace Blazor.Contentful.Blog.Starter
 
             services.Configure<SiteConfig>(Configuration);
             services.AddContentful(Configuration);
-            services.AddSingleton<ContentfulApi, GraphQLContentfulApi>();
+            services.AddSingleton<ContentfulApi, SdkContentfulApi>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

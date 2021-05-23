@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Contentful.GraphQL
+﻿namespace Blazor.Contentful.Blog.Starter.Contentful.Sdk
 {
     using System;
     using System.Collections.Concurrent;
@@ -12,19 +12,18 @@
     using Blazor.Contentful.Blog.Starter.Data;
     using global::Contentful.Core;
     using global::Contentful.Core.Search;
-    using Microsoft.CodeAnalysis.CSharp.Syntax;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
 
-    public class GraphQLContentfulApi
+    public class SdkContentfulApi
         : ContentfulApi
     {
-        private readonly ILogger<GraphQLContentfulApi> _logger;
+        private readonly ILogger<SdkContentfulApi> _logger;
         private readonly IContentfulClient _client;
         private readonly SiteConfig _siteConfig;
 
-        public GraphQLContentfulApi(
-            ILogger<GraphQLContentfulApi> logger,
+        public SdkContentfulApi(
+            ILogger<SdkContentfulApi> logger,
             IContentfulClient client,
             IOptions<SiteConfig> siteConfigOptions
         )
