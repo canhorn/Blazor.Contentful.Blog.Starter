@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Pages
+﻿namespace Blazor.Contentful_.Blog.Starter.Pages
 {
     using System.Diagnostics;
     using Microsoft.AspNetCore.Mvc;

@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Localization
+﻿namespace Blazor.Contentful_.Blog.Starter.Localization
 {
     public class LocalizationResource
     {

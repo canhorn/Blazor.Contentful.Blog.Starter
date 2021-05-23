@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Shared.Components.DynamicComponent
+﻿namespace Blazor.Contentful_.Blog.Starter.Shared.Components.DynamicComponent
 {
     using System;
     using System.Collections.Generic;

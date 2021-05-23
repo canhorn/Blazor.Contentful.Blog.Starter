@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Contentful.Model
+﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model
 {
     public struct ContentfulOptions
     {

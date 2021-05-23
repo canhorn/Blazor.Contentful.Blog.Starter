@@ -1,11 +1,11 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Contentful.Api
+﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Api
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Blazor.Contentful.Blog.Starter.CacheBusting.Api;
-    using Blazor.Contentful.Blog.Starter.Contentful.Model;
-    using Blazor.Contentful.Blog.Starter.Contentful.Model.Blog;
-    using Blazor.Contentful.Blog.Starter.Contentful.Model.Page;
+    using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Blog;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
 
     public interface ContentfulApi
         : BustCache

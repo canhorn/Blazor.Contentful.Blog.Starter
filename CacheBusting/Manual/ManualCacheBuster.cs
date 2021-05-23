@@ -1,9 +1,9 @@
-﻿namespace Blazor.Contentful.Blog.Starter.CacheBusting.Manual
+﻿namespace Blazor.Contentful_.Blog.Starter.CacheBusting.Manual
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Blazor.Contentful.Blog.Starter.CacheBusting.Api;
+    using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
     using Microsoft.Extensions.Logging;
 
     /// <summary>

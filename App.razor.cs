@@ -1,6 +1,6 @@
-﻿namespace Blazor.Contentful.Blog.Starter
+﻿namespace Blazor.Contentful_.Blog.Starter
 {
-    using Blazor.Contentful.Blog.Starter.Data;
+    using Blazor.Contentful_.Blog.Starter.Data;
     using Microsoft.AspNetCore.Components;
     using Microsoft.Extensions.Options;
 

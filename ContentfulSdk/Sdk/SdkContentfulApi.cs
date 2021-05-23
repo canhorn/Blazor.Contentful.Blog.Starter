@@ -1,17 +1,17 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Contentful.Sdk
+﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Sdk
 {
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Blazor.Contentful.Blog.Starter.Contentful.Api;
-    using Blazor.Contentful.Blog.Starter.Contentful.Model;
-    using Blazor.Contentful.Blog.Starter.Contentful.Model.Blog;
-    using Blazor.Contentful.Blog.Starter.Contentful.Model.Page;
-    using Blazor.Contentful.Blog.Starter.Data;
-    using global::Contentful.Core;
-    using global::Contentful.Core.Search;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Api;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Blog;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
+    using Blazor.Contentful_.Blog.Starter.Data;
+    using Contentful.Core;
+    using Contentful.Core.Search;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
 

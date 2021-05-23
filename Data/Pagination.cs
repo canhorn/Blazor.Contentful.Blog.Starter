@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Data
+﻿namespace Blazor.Contentful_.Blog.Starter.Data
 {
     public class Pagination
     {

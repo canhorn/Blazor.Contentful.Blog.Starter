@@ -1,8 +1,8 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Contentful.Model.Blog
+﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Blog
 {
     using System.Collections.Generic;
-    using Blazor.Contentful.Blog.Starter.Contentful.Model.Page;
-    using global::Contentful.Core.Models;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
+    using Contentful.Core.Models;
 
     public class BlogPost
     {

@@ -1,4 +1,4 @@
-namespace Blazor.Contentful.Blog.Starter
+namespace Blazor.Contentful_.Blog.Starter
 {
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;

@@ -1,12 +1,12 @@
-﻿namespace Blazor.Contentful.Blog.Starter.SitemapGeneration.Generators
+﻿namespace Blazor.Contentful_.Blog.Starter.SitemapGeneration.Generators
 {
     using System;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using Blazor.Contentful.Blog.Starter.Contentful.Api;
-    using Blazor.Contentful.Blog.Starter.Data;
-    using Blazor.Contentful.Blog.Starter.SitemapGeneration.Api;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Api;
+    using Blazor.Contentful_.Blog.Starter.Data;
+    using Blazor.Contentful_.Blog.Starter.SitemapGeneration.Api;
     using Microsoft.Extensions.Options;
 
     public class DynamicSitemapGenerator

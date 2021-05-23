@@ -1,14 +1,14 @@
-namespace Blazor.Contentful.Blog.Starter
+namespace Blazor.Contentful_.Blog.Starter
 {
     using System.Collections.Generic;
     using System.Globalization;
-    using Blazor.Contentful.Blog.Starter.CacheBusting.Api;
-    using Blazor.Contentful.Blog.Starter.CacheBusting.Manual;
-    using Blazor.Contentful.Blog.Starter.Contentful.Api;
-    using Blazor.Contentful.Blog.Starter.Contentful.Sdk;
-    using Blazor.Contentful.Blog.Starter.Data;
-    using Blazor.Contentful.Blog.Starter.SitemapGeneration.Api;
-    using Blazor.Contentful.Blog.Starter.SitemapGeneration.Generators;
+    using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
+    using Blazor.Contentful_.Blog.Starter.CacheBusting.Manual;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Api;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Sdk;
+    using Blazor.Contentful_.Blog.Starter.Data;
+    using Blazor.Contentful_.Blog.Starter.SitemapGeneration.Api;
+    using Blazor.Contentful_.Blog.Starter.SitemapGeneration.Generators;
     using global::Contentful.AspNetCore;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;

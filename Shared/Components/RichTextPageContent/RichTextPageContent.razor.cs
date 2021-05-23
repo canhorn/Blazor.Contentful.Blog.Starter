@@ -1,7 +1,7 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Shared.Components.RichTextPageContent
+﻿namespace Blazor.Contentful_.Blog.Starter.Shared.Components.RichTextPageContent
 {
     using System.Threading.Tasks;
-    using Blazor.Contentful.Blog.Starter.Contentful.Model.Page;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
     using global::Contentful.Core.Models;
     using Microsoft.AspNetCore.Components;
 

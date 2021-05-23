@@ -1,6 +1,6 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Contentful.Model
+﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model
 {
-    using global::Contentful.Core.Models;
+    using Contentful.Core.Models;
 
     public class Person
     {

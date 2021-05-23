@@ -1,12 +1,12 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Pages.Blog.Page
+﻿namespace Blazor.Contentful_.Blog.Starter.Pages.Blog.Page
 {
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Blazor.Contentful.Blog.Starter.Contentful.Model.Blog;
-    using Blazor.Contentful.Blog.Starter.Contentful.Model.Page;
-    using Blazor.Contentful.Blog.Starter.Data;
-    using Blazor.Contentful.Blog.Starter.Shared.Components;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Blog;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
+    using Blazor.Contentful_.Blog.Starter.Data;
+    using Blazor.Contentful_.Blog.Starter.Shared.Components;
     using Microsoft.AspNetCore.Components;
 
     public class PageBase
@@ -19,7 +19,7 @@
         public int Page { get; set; }
 
         [Inject]
-        public Contentful.Api.ContentfulApi ContentfulApi { get; set; } = null!;
+        public ContentfulSdk.Api.ContentfulApi ContentfulApi { get; set; } = null!;
 
         public PageContent PageContent { get; set; } = new PageContent();
 

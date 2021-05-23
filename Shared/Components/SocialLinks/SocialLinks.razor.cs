@@ -1,9 +1,9 @@
-﻿namespace Blazor.Contentful.Blog.Starter.Shared.Components.SocialLinks
+﻿namespace Blazor.Contentful_.Blog.Starter.Shared.Components.SocialLinks
 {
     using System;
     using System.Collections.Generic;
-    using Blazor.Contentful.Blog.Starter.Data;
-    using Blazor.Contentful.Blog.Starter.Shared.Components.SocialLinks.svg;
+    using Blazor.Contentful_.Blog.Starter.Data;
+    using Blazor.Contentful_.Blog.Starter.Shared.Components.SocialLinks.svg;
     using Microsoft.AspNetCore.Components;
 
     public class SocialLinksBase
