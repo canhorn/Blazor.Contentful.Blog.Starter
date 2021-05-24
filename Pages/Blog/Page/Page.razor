@@ -1,18 +1,6 @@
 @page "/blog/page/{page:int}"
 @inherits PageBase 
 
-@{
-    var pageTitle = PageContent.Title.IsNotNullOrWhitespace()
-        ? PageContent.Title 
-        : Localizer["Blog"]!;
-    var pageDescription = PageContent.Description.IsNotNullOrWhitespace()
-        ? PageContent.Description
-        : Localizer["Articles | Blazor Contentful blog starter"];
-}
-<PageMeta Title="@Localizer["{0} Page {1}", pageTitle, CurrentPage]"
-          Description="@pageDescription"
-          Url="@($"{Config.GetSiteUrl(Config.PageMeta.BlogIndex.Url)}/page/{CurrentPage}")"/>
-
 <HeroBanner Data="PageContent.HeroBanner" />
 
 <ContentWrapper>

@@ -28,6 +28,10 @@
             ContentfulOptions options = default
         );
 
+        Task<IEnumerable<BlogPost>> GetAllCachedBlogPosts(
+            ContentfulOptions options = default
+        );
+
         Task<BlogPost?> GetPostBySlug(
             string slug,
             ContentfulOptions options = default

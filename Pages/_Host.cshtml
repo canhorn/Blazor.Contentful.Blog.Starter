@@ -1,6 +1,7 @@
 ﻿@page "/"
 @namespace Blazor.Contentful_.Blog.Starter.Pages
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using EventHorizon.Blazor.DocumentMetadata.Components
 @{
     Layout = null;
 }
@@ -10,8 +11,32 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blazor.Contentful_.Blog.Starter</title>
     <base href="~/" />
+    @(await Html.RenderComponentAsync<EhzMetadataRenderComponent>(RenderMode.ServerPrerendered))
+
+    <link rel="icon"
+          href="/favicon.ico" />
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png" />
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png" />
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png" />
+    <link rel="manifest"
+          href="/site.webmanifest" />
+    <link rel="mask-icon"
+          href="/safari-pinned-tab.svg"
+          color="#0f111a" />
+    <meta name="msapplication-TileColor"
+          content="#b91d47" />
+    <meta name="theme-color"
+          content="#f11012" />
+
     <link href="css/site.css" rel="stylesheet" />
     <link href="Blazor.Contentful.Blog.Starter.styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
@@ -38,7 +63,6 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
-    <script src="_content/Microsoft.AspNetCore.Components.Web.Extensions/headManager.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"
             integrity="sha512-xR+IAyN+t9EBIOOJw5m83FTVMDsPd63IhJ3ElP4gmfUFnQlX9+eWGLp3P4t3gIjpo2Z1JzqtW/5cjgn+oru3yQ=="
             crossorigin="anonymous"
@@ -55,6 +79,5 @@
             Prism.highlightAll();
         }
     </script>
-    <script src="prism.js"></script>
 </body>
 </html>

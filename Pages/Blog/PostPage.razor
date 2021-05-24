@@ -3,11 +3,6 @@
 
 @if (Post is not null)
 {
-    <PageMeta Title="@Post.Title"
-              Description="@Post.Excerpt"
-              Url="@($"{Config.GetSiteUrl(Config.PageMeta.BlogIndex.Url)}/{Post.Slug}")"
-              Canonical="@(Post.ExternalUrl.IsNotNullOrWhitespace() ? Post.ExternalUrl : "false")" />
-
     <ContentWrapper>
         <Post Post="Post" />
     </ContentWrapper>

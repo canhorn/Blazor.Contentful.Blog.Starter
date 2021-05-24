@@ -44,6 +44,7 @@
             GetPaginatedPostSummariesCache.Clear();
             GetPaginatedSlugsCache.Clear();
             GetPostBySlugCache.Clear();
+            GetAllCachedBlogPostsCache.Clear();
 
             return Task.CompletedTask;
         }
@@ -388,6 +389,19 @@
         public Task GetTotalPostsNumber()
         {
             throw new NotImplementedException();
+        }
+
+        public ConcurrentBag<BlogPost> GetAllCachedBlogPostsCache = new();
+
+        public async Task<IEnumerable<BlogPost>> GetAllCachedBlogPosts(ContentfulOptions options = default)
+        {
+            var posts = await GetAllBlogPosts(options);
+            if (!GetAllCachedBlogPostsCache.IsEmpty)
+            {
+                return GetAllCachedBlogPostsCache;
+            }
+            GetAllCachedBlogPostsCache = new ConcurrentBag<BlogPost>(posts);
+            return GetAllCachedBlogPostsCache;
         }
     }
 }

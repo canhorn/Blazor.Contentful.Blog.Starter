@@ -11,7 +11,8 @@
         <PackageReference Include="contentful.aspnetcore" Version="6.0.7" />
         <PackageReference Include="contentful.csharp" Version="6.0.7" />
         <PackageReference Include="Markdig" Version="0.24.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.Web.Extensions" Version="5.0.0-preview9.20513.1" />
+
+        <PackageReference Include="EventHorizon.Blazor.DocumentMetadata" Version="0.1.2" />
     </ItemGroup>
-    
+
 </Project>
