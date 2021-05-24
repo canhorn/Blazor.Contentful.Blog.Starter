@@ -146,12 +146,9 @@
 
             // Add Blog Posts
             var posts = await _api.GetAllCachedBlogPosts();
-
             var totalPosts = 0;
             foreach (var post in posts)
             {
-                System.Console.WriteLine($"blog/{post.Slug}");
-                System.Console.WriteLine(post.Title);
                 var slug = $"{_siteConfig.PageMeta.BlogIndex.Slug}/{post.Slug}";
                 BuildPage(
                     slug,

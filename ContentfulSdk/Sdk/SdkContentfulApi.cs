@@ -145,7 +145,6 @@
                     out var cached
                 ))
                 {
-                    Console.WriteLine("GetPageContentBySlug : Cache Hit");
                     return cached;
                 }
 
@@ -211,7 +210,6 @@
                     out var cached
                 ))
                 {
-                    Console.WriteLine("GetPaginatedPostSummaries : Cache Hit");
                     return cached;
                 }
 
@@ -275,8 +273,6 @@
                     out var cached
                 ))
                 {
-                    Console.WriteLine("GetPaginatedBlogPosts : Cache Hit");
-
                     return cached;
                 }
 
@@ -330,7 +326,6 @@
                     out var cached
                 ))
                 {
-                    Console.WriteLine("GetPostBySlug : Cache Hit");
                     return cached;
                 }
 
@@ -405,7 +400,6 @@
             var posts = await GetAllBlogPosts(options);
             if (!GetAllCachedBlogPostsCache.IsEmpty)
             {
-                Console.WriteLine("GetAllCachedBlogPosts : Cache Hit");
                 return GetAllCachedBlogPostsCache;
             }
             GetAllCachedBlogPostsCache = new ConcurrentBag<BlogPost>(posts);

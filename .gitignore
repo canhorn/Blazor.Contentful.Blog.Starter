@@ -4,6 +4,7 @@ bin
 obj
 appsettings.*.json
 .vs
+.config
 *.csproj.user
 Properties/PublishProfiles
 Properties/ServiceDependencies
