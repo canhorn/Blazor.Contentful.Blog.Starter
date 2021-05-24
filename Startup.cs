@@ -5,11 +5,14 @@ namespace Blazor.Contentful_.Blog.Starter
     using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
     using Blazor.Contentful_.Blog.Starter.CacheBusting.Manual;
     using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Api;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer;
     using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Sdk;
     using Blazor.Contentful_.Blog.Starter.Data;
+    using Blazor.Contentful_.Blog.Starter.FeedGeneration.Api;
+    using Blazor.Contentful_.Blog.Starter.FeedGeneration.Generators;
     using Blazor.Contentful_.Blog.Starter.SitemapGeneration.Api;
     using Blazor.Contentful_.Blog.Starter.SitemapGeneration.Generators;
-    using global::Contentful.AspNetCore;
+    using Contentful.AspNetCore;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -34,6 +37,9 @@ namespace Blazor.Contentful_.Blog.Starter
 
             // Setup Sitemap Services
             services.AddSingleton<SitemapGenerator, DynamicSitemapGenerator>();
+
+            // Setup RSS Feed Services
+            services.AddSingleton<RssFeedGenerator, ContentfulRssFeedGenerator>();
 
             // I18n Services
             // This registers the supported Locales for localization.
@@ -62,6 +68,7 @@ namespace Blazor.Contentful_.Blog.Starter
             services.Configure<SiteConfig>(Configuration);
             services.AddContentful(Configuration);
             services.AddSingleton<ContentfulApi, SdkContentfulApi>();
+            services.AddSingleton<ContentfulHtmlRenderer>();
 
             // Setup Cache Busting
             services.AddSingleton<CacheBuster, ManualCacheBuster>()
@@ -104,6 +111,19 @@ namespace Blazor.Contentful_.Blog.Starter
                         await context.Response.WriteAsync(
                             await context.RequestServices
                                 .GetRequiredService<SitemapGenerator>()
+                                .Generate()
+                        );
+                    }
+                );
+
+                // Here we register <domain>/feed.xml to return the generated RSS Feed
+                endpoints.MapGet(
+                    "/feed.xml",
+                    async context =>
+                    {
+                        await context.Response.WriteAsync(
+                            await context.RequestServices
+                                .GetRequiredService<RssFeedGenerator>()
                                 .Generate()
                         );
                     }

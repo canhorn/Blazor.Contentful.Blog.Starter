@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Shared.Components.RichTextPageContent.Renders
+﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer.Renderers
 {
     using System.Net;
     using System.Text;
@@ -18,6 +18,7 @@
         {
             return content is EntryStructure;
         }
+
         public string Render(IContent content)
         {
             var entryStructure = content as EntryStructure;

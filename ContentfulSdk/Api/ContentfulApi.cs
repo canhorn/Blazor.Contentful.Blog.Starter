@@ -15,7 +15,7 @@
             ContentfulOptions options = default
         );
 
-        Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedSlugs(
+        Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedBlogPosts(
             int page,
             ContentfulOptions options = default
         );
@@ -23,34 +23,23 @@
         Task<IEnumerable<string>> GetAllPostSlugs(
             ContentfulOptions options = default
         );
-        
-        Task GetPaginatedBlogPosts(
-            string slug,
+
+        Task<IEnumerable<BlogPost>> GetAllBlogPosts(
             ContentfulOptions options = default
         );
-        
-        Task GetAllBlogPosts(
-            string slug,
-            ContentfulOptions options = default
-        );
-        
+
         Task<BlogPost?> GetPostBySlug(
             string slug,
             ContentfulOptions options = default
         );
-        
-        Task<(int Total, IEnumerable<BlogPost> Items)>  GetPaginatedPostSummaries(
+
+        Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedPostSummaries(
             int page,
             ContentfulOptions options = default
         );
-        
-        Task<IEnumerable<BlogPost>> GetRecentPostList();
-        
-        Task GetTotalPostsNumber();
 
-        Task CallContentful(
-            string query,
-            ContentfulOptions options = default
-        );
+        Task<IEnumerable<BlogPost>> GetRecentPostList();
+
+        Task GetTotalPostsNumber();
     }
 }

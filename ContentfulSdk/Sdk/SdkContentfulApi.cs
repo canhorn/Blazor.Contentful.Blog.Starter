@@ -48,14 +48,38 @@
             return Task.CompletedTask;
         }
 
-        public Task CallContentful(string query, ContentfulOptions options = default)
+        public async Task<IEnumerable<BlogPost>> GetAllBlogPosts(
+            ContentfulOptions options = default
+        )
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                var postList = new List<BlogPost>();
+                var page = 1;
+                var shouldQueryMorePosts = true;
 
-        public Task GetAllBlogPosts(string slug, ContentfulOptions options = default)
-        {
-            throw new NotImplementedException();
+                while (shouldQueryMorePosts)
+                {
+                    var (Total, Items) = await GetPaginatedBlogPosts(
+                        page
+                    );
+                    postList.AddRange(
+                        Items
+                    );
+
+                    shouldQueryMorePosts = postList.Count < Total;
+                }
+
+                return postList;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(
+                    ex,
+                    "Failed to get Slug List."
+                );
+                return new List<BlogPost>();
+            }
         }
 
         public async Task<IEnumerable<string>> GetAllPostSlugs(
@@ -70,16 +94,16 @@
 
                 while (shouldQueryMoreSlugs)
                 {
-                    var response = await this.GetPaginatedSlugs(
+                    var (Total, Items) = await GetPaginatedBlogPosts(
                         page
                     );
                     slugList.AddRange(
-                        response.Items.Select(
+                        Items.Select(
                             a => a.Slug
                         )
                     );
 
-                    shouldQueryMoreSlugs = slugList.Count < response.Total;
+                    shouldQueryMoreSlugs = slugList.Count < Total;
                 }
 
 
@@ -148,11 +172,6 @@
             }
         }
 
-        public Task GetPaginatedBlogPosts(string slug, ContentfulOptions options = default)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedPostSummaries(
             int page,
             ContentfulOptions options = default
@@ -216,7 +235,7 @@
             }
         }
 
-        public async Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedSlugs(
+        public async Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedBlogPosts(
             int page,
             ContentfulOptions options = default
         )

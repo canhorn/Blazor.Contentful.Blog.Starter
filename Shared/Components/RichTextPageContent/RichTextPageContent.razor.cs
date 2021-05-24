@@ -2,8 +2,7 @@
 {
     using System.Threading.Tasks;
     using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
-    using Blazor.Contentful_.Blog.Starter.Shared.Components.RichTextPageContent.Renders;
-    using Contentful.Core.Models;
+    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer;
     using Microsoft.AspNetCore.Components;
     using Microsoft.JSInterop;
 
@@ -15,7 +14,8 @@
 
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = null!;
-
+        [Inject]
+        public ContentfulHtmlRenderer Renderer { get; set; } = null!;
 
         public string Content { get; set; } = string.Empty;
 
@@ -23,11 +23,9 @@
         {
             if (Body is not null)
             {
-                var htmlRenderer = new HtmlRenderer();
-                htmlRenderer.AddRenderer(
-                    new ContentfulBlocksEmbeddedEntryRender()
+                Content = await Renderer.Render(
+                    Body
                 );
-                Content = await htmlRenderer.ToHtml(Body);
             }
         }
 
@@ -45,11 +43,9 @@
         {
             if (Body is not null)
             {
-                var htmlRenderer = new HtmlRenderer();
-                htmlRenderer.AddRenderer(
-                    new ContentfulBlocksEmbeddedEntryRender()
+                Content = await Renderer.Render(
+                    Body
                 );
-                Content = await htmlRenderer.ToHtml(Body);
             }
         }
     }
