@@ -1,0 +1,47 @@
+﻿
+<pre>
+@DataJson
+</pre>
+
+@code {
+    [Parameter]
+    public object? Data { get; set; }
+
+    protected string DataJson { get; set; } = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        StringifyData(
+            Data
+        );
+    }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        StringifyData(
+            Data
+        );
+    }
+
+    private void StringifyData(
+        object? data
+    )
+    {
+        DataJson = string.Empty;
+
+        if (data is not null)
+        {
+            DataJson = System.Text.Json.JsonSerializer.Serialize(
+                data,
+                new System.Text.Json.JsonSerializerOptions
+                {
+                    WriteIndented = true,
+                }
+            );
+        }
+    }
+}

@@ -24,16 +24,26 @@
             _bustCacheList = bustCacheList;
         }
 
-        public async Task BustCache()
+        public async Task<bool> BustCache()
         {
             _logger.LogWarning(
                 "Busting the cache of {ServiceCount} service(s).",
                 _bustCacheList.Count()
             );
-            foreach (var bustCacheItem in _bustCacheList)
+            foreach (var bustCacheItem in _bustCacheList.OrderBy(o => o.Order))
             {
-                await bustCacheItem.BustCache();
+                var busted = await bustCacheItem.BustCache();
+                if (!busted)
+                {
+                    _logger.LogError(
+                        "Failed to bust cache: {BustCacheItem}",
+                        bustCacheItem.GetType().FullName
+                    );
+                    return false;
+                }
             }
+
+            return true;
         }
     }
 }

@@ -1,6 +1,5 @@
 namespace Blazor.Contentful_.Blog.Starter
 {
-    using System;
     using System.Collections.Generic;
     using System.Globalization;
     using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
@@ -12,11 +11,12 @@ namespace Blazor.Contentful_.Blog.Starter
     using Blazor.Contentful_.Blog.Starter.FeedGeneration.Api;
     using Blazor.Contentful_.Blog.Starter.FeedGeneration.Generators;
     using Blazor.Contentful_.Blog.Starter.Localization;
+    using Blazor.Contentful_.Blog.Starter.PageMetadataGeneration.Api;
+    using Blazor.Contentful_.Blog.Starter.PageMetadataGeneration.Genereators;
     using Blazor.Contentful_.Blog.Starter.SitemapGeneration.Api;
     using Blazor.Contentful_.Blog.Starter.SitemapGeneration.Generators;
     using Contentful.AspNetCore;
     using EventHorizon.Blazor.DocumentMetadata;
-    using EventHorizon.Blazor.DocumentMetadata.Api;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -25,7 +25,6 @@ namespace Blazor.Contentful_.Blog.Starter
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Localization;
-    using Microsoft.Extensions.Options;
 
     public class Startup
     {
@@ -42,173 +41,16 @@ namespace Blazor.Contentful_.Blog.Starter
             services.AddServerSideBlazor();
 
 
-            services.AddDocumentMetadata(async (serviceProvider, registrator) =>
-            {
-                System.Console.WriteLine("hi");
-
-
-                var localizer = serviceProvider.GetRequiredService<IStringLocalizer<LocalizationResource>>();
-                var api = serviceProvider.GetRequiredService<ContentfulApi>();
-                var siteConfig = serviceProvider.GetRequiredService<IOptions<SiteConfig>>().Value;
-
-                registrator.AddDefault()
-                    .Title(siteConfig.Site.Title)
-                    .Link(
-                        "alterntive",
-                        $"https://{siteConfig.Site.Domain}/feed.xml",
-                        localizer["RSS Feed for {0}", siteConfig.Site.Domain]
-                            ?? $"RSS Feed For {siteConfig.Site.Domain}",
-                        "application/rss+xml"
-                    )
-                    .Meta("twitter:card", "summary_large_image")
-                    .Meta("twitter:site", $"@{siteConfig.PageMeta.OpenGraph.TwitterUser}")
-                    .Meta("twitter:creator", $"@{siteConfig.PageMeta.OpenGraph.TwitterUser}")
-                ;
-
-                void BuildPage(
-                    IDocumentMetadataCollection registar,
-                    string slug,
-                    string siteConfigTitle,
-                    string pageTitle,
-                    string description,
-                    string url,
-                    string cononical = ""
-                )
+            services.AddTransient<PageMetadataGenerator, StaticPageMetadataGenerator>()
+                .AddDocumentMetadata(async (serviceProvider, registrator) =>
                 {
-                    var title = $"{pageTitle} | {siteConfigTitle}";
-                    var openGraphImage = OpenGraph.GenerateImageUrl(title);
-
-                    var page = registrator.AddPage(slug)
-                        .Title(title)
-                        .Meta("title", title)
-                        .OpenGraph("og:title", title)
-                        .OpenGraph("twitter:title", title)
-
-                        .Meta("description", description)
-                        .OpenGraph("og:description", description)
-                        .OpenGraph("twitter:description", description)
-
-                        .OpenGraph("og:url", url)
-                        .OpenGraph("twitter:url", url)
-
-                        .OpenGraph("og:image", openGraphImage)
-                        .OpenGraph("twitter:image", openGraphImage)
-                    ;
-                    if (cononical.IsNotNullOrWhitespace())
-                    {
-                        page.Link("canonical", cononical);
-                    }
-                }
-
-
-
-                // Add Not Found Page
-                BuildPage(
-                    registrator,
-                    "/not-found",
-                    siteConfig.Site.Title,
-                    localizer["Not Found"]!,
-                    localizer["This page was not found"]!,
-                    siteConfig.GetSiteUrl("/not-found")
-                );
-
-                // Add Index Page
-                var indexResult = await api.GetPageContentBySlug(
-                    siteConfig.PageMeta.Home.Slug
-                );
-                if (indexResult is not null)
-                {
-                    var slug = siteConfig.PageMeta.Home.Slug;
-                    var indexPageContent = indexResult;
-                    var pageTitle = indexPageContent.Title.IsNotNullOrWhitespace()
-                        ? indexPageContent.Title
-                        : localizer["Home"]!;
-                    var pageDescription = indexPageContent.Description.IsNotNullOrWhitespace()
-                        ? indexPageContent.Description
-                        : localizer["Welcome to the Blazor Contentful blog Starter"]!;
-
-                    BuildPage(
+                    var localizer = serviceProvider.GetRequiredService<IStringLocalizer<LocalizationResource>>();
+                    var generator = serviceProvider.GetRequiredService<PageMetadataGenerator>();
+                    await generator.Generate(
                         registrator,
-                        slug,
-                        siteConfig.Site.Title,
-                        pageTitle,
-                        pageDescription,
-                        siteConfig.GetSiteUrl(slug)
+                        localizer
                     );
-                }
-
-
-
-                // Add Blog Posts
-                var posts = await api.GetAllCachedBlogPosts();
-
-                var totalPosts = 0;
-                foreach (var post in posts)
-                {
-                    System.Console.WriteLine($"blog/{post.Slug}");
-                    System.Console.WriteLine(post.Title);
-                    var slug = $"{siteConfig.PageMeta.BlogIndex.Slug}/{post.Slug}";
-                    BuildPage(
-                        registrator,
-                        slug,
-                        siteConfig.Site.Title,
-                        post.Title,
-                        post.Excerpt,
-                        siteConfig.GetSiteUrl(slug),
-                        post.ExternalUrl.IsNotNullOrWhitespace()
-                            ? post.ExternalUrl
-                            : "false"
-                    );
-
-                    totalPosts += 1;
-                }
-
-
-                // Add Blog Page
-                var blogResult = await api.GetPageContentBySlug(
-                    siteConfig.PageMeta.BlogIndex.Slug
-                );
-                if (blogResult is not null)
-                {
-                    var slug = siteConfig.PageMeta.BlogIndex.Slug;
-                    var blogPageContent = blogResult;
-                    var pageTitle = blogPageContent.Title.IsNotNullOrWhitespace()
-                        ? blogPageContent.Title
-                        : localizer["Blog"]
-                            ?? "Blog";
-                    var pageDescription = blogPageContent.Description.IsNotNullOrWhitespace()
-                        ? blogPageContent.Description
-                        : localizer["Articles | Blazor Contentful blog starter"]
-                            ?? "Articles | Blazor Contentful blog starter";
-
-                    BuildPage(
-                        registrator,
-                        slug,
-                        siteConfig.Site.Title,
-                        pageTitle,
-                        pageDescription,
-                        siteConfig.GetSiteUrl(slug)
-                    );
-                    // Add Blog Page(s)
-                    var totalPages = (int)Math.Ceiling(
-                        decimal.Divide(totalPosts, siteConfig.Pagination.PageSize)
-                    );
-
-                    for (var page = 2; page <= totalPages; page++)
-                    {
-                        slug = $"{siteConfig.PageMeta.BlogIndex.Slug}/page/{page}";
-                        BuildPage(
-                            registrator,
-                            slug,
-                            siteConfig.Site.Title,
-                            localizer["{0} Page {1}", pageTitle, page]
-                                ?? $"{pageTitle} Page {page}",
-                            pageDescription,
-                            ($"{siteConfig.GetSiteUrl(slug)}/page/{page}")
-                        );
-                    }
-                }
-            });
+                });
 
             // Setup Sitemap Services
             services.AddSingleton<SitemapGenerator, DynamicSitemapGenerator>();
@@ -253,6 +95,8 @@ namespace Blazor.Contentful_.Blog.Starter
                     services => services.GetRequiredService<ContentfulApi>()
                 ).AddTransient<BustCache>(
                     services => services.GetRequiredService<SitemapGenerator>()
+                ).AddTransient<BustCache>(
+                    services => services.GetRequiredService<PageMetadataGenerator>()
                 );
         }
 

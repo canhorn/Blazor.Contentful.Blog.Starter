@@ -16,6 +16,8 @@
         private readonly SiteConfig _siteConfig;
         private string Cached_XML = string.Empty;
 
+        public int Order => 10;
+
         public DynamicSitemapGenerator(
             ContentfulApi contentfulApi,
             IOptions<SiteConfig> siteConfigOptions
@@ -25,11 +27,11 @@
             _siteConfig = siteConfigOptions.Value;
         }
 
-        public Task BustCache()
+        public Task<bool> BustCache()
         {
             Cached_XML = string.Empty;
 
-            return Task.CompletedTask;
+            return Task.FromResult(true);
         }
 
         public async Task<string> Generate()

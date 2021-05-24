@@ -4,6 +4,7 @@
 
     public interface BustCache
     {
-        Task BustCache();
+        int Order { get; }
+        Task<bool> BustCache();
     }
 }

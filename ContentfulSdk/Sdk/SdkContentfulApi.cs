@@ -22,10 +22,13 @@
         private static readonly ConcurrentDictionary<string, (int Total, IEnumerable<BlogPost> Items)> GetPaginatedPostSummariesCache = new();
         private static readonly ConcurrentDictionary<string, (int Total, IEnumerable<BlogPost> Items)> GetPaginatedSlugsCache = new();
         private static readonly ConcurrentDictionary<string, BlogPost> GetPostBySlugCache = new();
+        public ConcurrentBag<BlogPost> GetAllCachedBlogPostsCache = new();
 
         private readonly ILogger<SdkContentfulApi> _logger;
         private readonly IContentfulClient _client;
         private readonly SiteConfig _siteConfig;
+
+        public int Order => 1;
 
         public SdkContentfulApi(
             ILogger<SdkContentfulApi> logger,
@@ -38,7 +41,7 @@
             _siteConfig = siteConfigOptions.Value;
         }
 
-        public Task BustCache()
+        public Task<bool> BustCache()
         {
             GetPageContentBySlugCache.Clear();
             GetPaginatedPostSummariesCache.Clear();
@@ -46,7 +49,7 @@
             GetPostBySlugCache.Clear();
             GetAllCachedBlogPostsCache.Clear();
 
-            return Task.CompletedTask;
+            return Task.FromResult(true);
         }
 
         public async Task<IEnumerable<BlogPost>> GetAllBlogPosts(
@@ -62,7 +65,8 @@
                 while (shouldQueryMorePosts)
                 {
                     var (Total, Items) = await GetPaginatedBlogPosts(
-                        page
+                        page,
+                        options
                     );
                     postList.AddRange(
                         Items
@@ -96,7 +100,8 @@
                 while (shouldQueryMoreSlugs)
                 {
                     var (Total, Items) = await GetPaginatedBlogPosts(
-                        page
+                        page,
+                        options
                     );
                     slugList.AddRange(
                         Items.Select(
@@ -140,7 +145,7 @@
                     out var cached
                 ))
                 {
-                    Console.WriteLine("Cache Hit");
+                    Console.WriteLine("GetPageContentBySlug : Cache Hit");
                     return cached;
                 }
 
@@ -206,7 +211,7 @@
                     out var cached
                 ))
                 {
-                    Console.WriteLine("Cache Hit");
+                    Console.WriteLine("GetPaginatedPostSummaries : Cache Hit");
                     return cached;
                 }
 
@@ -270,6 +275,8 @@
                     out var cached
                 ))
                 {
+                    Console.WriteLine("GetPaginatedBlogPosts : Cache Hit");
+
                     return cached;
                 }
 
@@ -323,7 +330,7 @@
                     out var cached
                 ))
                 {
-                    Console.WriteLine("Cache Hit");
+                    Console.WriteLine("GetPostBySlug : Cache Hit");
                     return cached;
                 }
 
@@ -391,13 +398,14 @@
             throw new NotImplementedException();
         }
 
-        public ConcurrentBag<BlogPost> GetAllCachedBlogPostsCache = new();
-
-        public async Task<IEnumerable<BlogPost>> GetAllCachedBlogPosts(ContentfulOptions options = default)
+        public async Task<IEnumerable<BlogPost>> GetAllCachedBlogPosts(
+            ContentfulOptions options = default
+        )
         {
             var posts = await GetAllBlogPosts(options);
             if (!GetAllCachedBlogPostsCache.IsEmpty)
             {
+                Console.WriteLine("GetAllCachedBlogPosts : Cache Hit");
                 return GetAllCachedBlogPostsCache;
             }
             GetAllCachedBlogPostsCache = new ConcurrentBag<BlogPost>(posts);

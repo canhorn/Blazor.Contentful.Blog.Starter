@@ -30,11 +30,11 @@
             _siteConfig = siteConfigOptions.Value;
         }
 
-        public Task BustCache()
+        public Task<bool> BustCache()
         {
             Cached_XML = string.Empty;
 
-            return Task.CompletedTask;
+            return Task.FromResult(true);
         }
 
         public async Task<string> Generate()
