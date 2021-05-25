@@ -111,6 +111,8 @@ dotnet watch run
 
 ## Deploy this site to Azure
 
+The below Template will setup most of the resources. It will still need an application to be published, which can be done through the Azure Extension in VSCode or Visual Studio 2019.
+
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcanhorn%2FBlazor.Contentful.Blog.Starter%2Fmaster%2Fazure%2Fdeploy-to-azure.json)
 
 
