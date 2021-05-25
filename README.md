@@ -10,6 +10,13 @@ This is an example repository for you to use to create a new blog site using Bla
 
 [Click here to explore the demo site that uses this repository as its source code.](https://blazor-contentful-blog-starter.azurewebsites.net/)
 
+## Deploy this site to Azure
+
+The below Deploy to Azure will get you started with this template, when creating your instance you will need your Contentful API keys and Space Id, checkout the sections below to create them. After you can fill in your Contentful details and start the Creation.
+There will be a little bit of a wait for the Azure Resources to be created and the initial build/deploy are done.
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcanhorn%2FBlazor.Contentful.Blog.Starter%2Fmaster%2Fazure%2Fdeploy-to-azure.json)
+
 ## Getting set up
 
 Fork the repository to your GitHub account and clone it to your local machine.
@@ -91,7 +98,7 @@ The following command in your terminal, ensuring you switch out SPACE_ID for you
 cd Blazor.Contentful.Blog.Starter/Setup
 
 contentful space import --space-id SPACE_ID --content-file content-export.json
-```
+~~~
 
 You should see this output in the terminal. The import will take around 1 minute to complete.
 
@@ -109,13 +116,8 @@ Navigate to the project directory in a terminal window and run:
 dotnet watch run
 ~~~
 
-## Deploy this site to Azure
-
-The below Template will setup most of the resources. It will still need an application to be published, which can be done through the Azure Extension in VSCode or Visual Studio 2019.
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcanhorn%2FBlazor.Contentful.Blog.Starter%2Fmaster%2Fazure%2Fdeploy-to-azure.json)
-
-
 ## Cache Busting (WebHook registration)
 
-TBD
+After your Azure instance, or other chosen deployment method, you will need to register a WebHook, ```https://<your-domain>/webhook/cache-buster``` with Contentful. This WebHook is used by the Blazor Contentful Blog Starter application to know when it should clear its cache and request fresh CMS data from Contentful.
+
+I will not go over this process on this repository, but you can check [Intro to webhooks](https://www.contentful.com/developers/docs/concepts/webhooks) for more details.
