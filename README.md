@@ -4,7 +4,7 @@
 
 This is an example repository for you to use to create a new blog site using Blazor and Contentful, using Contentful's .NET SDK.
 
-[Read more about the GraphQL API](https://www.contentful.com/developers/docs/net/).
+[Read more about the .NET SDK](https://www.contentful.com/developers/docs/net/).
 
 ## View the demo site
 
