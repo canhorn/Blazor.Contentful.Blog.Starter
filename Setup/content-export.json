@@ -1,3 +1,4201 @@
 {
-    "@Comment":  "TODO: Export new Updated content-export.json"
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "pageContent",
+        "type": "ContentType",
+        "createdAt": "2021-05-22T02:21:20.034Z",
+        "updatedAt": "2021-05-22T02:21:22.084Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:21:22.084Z",
+        "firstPublishedAt": "2021-05-22T02:21:22.084Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Page Content",
+      "description": "A blob of content to display on a specified page.",
+      "fields": [
+        {
+          "id": "heroBanner",
+          "name": "Hero Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "heroBanner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "person",
+        "type": "ContentType",
+        "createdAt": "2021-05-22T02:21:20.034Z",
+        "updatedAt": "2021-05-22T02:21:22.404Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:21:22.404Z",
+        "firstPublishedAt": "2021-05-22T02:21:22.404Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "Person",
+      "description": "A person with a name, image, description and social links.",
+      "fields": [
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkMimetypeGroup": [
+                "image"
+              ],
+              "message": "Please choose an image file."
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "max": 280
+              },
+              "message": "Please enter fewer than 280 characters."
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "twitterUsername",
+          "name": "Twitter Username",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 15
+              },
+              "message": "Please enter the Twitter name only - maximum 15 characters"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "gitHubUsername",
+          "name": "GitHub Username",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 39
+              },
+              "message": "Please enter the GitHub username only - maximum 39 characters."
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "twitchUsername",
+          "name": "Twitch Username",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 25
+              },
+              "message": "Please enter the Twitch username only - maximum 25 characters."
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "websiteUrl",
+          "name": "Website URL",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "regexp": {
+                "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+                "flags": null
+              },
+              "message": "Please enter a full URL."
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "codeBlock",
+        "type": "ContentType",
+        "createdAt": "2021-05-22T02:21:20.068Z",
+        "updatedAt": "2021-05-22T02:21:23.810Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:21:23.810Z",
+        "firstPublishedAt": "2021-05-22T02:21:23.810Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "displayField": "description",
+      "name": "Code Block",
+      "description": "A block of code in a specified language.",
+      "fields": [
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "language",
+          "name": "Language",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "javascript",
+                "css",
+                "scss",
+                "markdown",
+                "graphql",
+                "react-jsx",
+                "react-tsx",
+                "bash-shell",
+                "git",
+                "typescript",
+                "markup"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "code",
+          "name": "Code",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "heroBanner",
+        "type": "ContentType",
+        "createdAt": "2021-05-22T02:21:20.153Z",
+        "updatedAt": "2021-05-22T02:21:23.456Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:21:23.456Z",
+        "firstPublishedAt": "2021-05-22T02:21:23.456Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "Hero Banner",
+      "description": "An element that can be displayed at the top of a page or blog post.",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkMimetypeGroup": [
+                "image"
+              ],
+              "message": "Please choose an image file."
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "headline",
+          "name": "Headline",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 80
+              },
+              "message": "Please enter fewer than 80 characters."
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "subHeading",
+          "name": "Sub Heading",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 100
+              },
+              "message": "Please enter fewer than 100 characters."
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "ctaText",
+          "name": "CTA Text",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 24
+              },
+              "message": "Please enter fewer than 24 characters."
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "externalLink",
+          "name": "External Link",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "regexp": {
+                "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+                "flags": null
+              },
+              "message": "Please ensure the URL is correctly formatted."
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "internalLink",
+          "name": "Internal Link",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "regexp": {
+                "pattern": "^\\/.*",
+                "flags": null
+              },
+              "message": "Please ensure the relative URL begins with a '/'."
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "videoEmbed",
+        "type": "ContentType",
+        "createdAt": "2021-05-22T02:21:21.759Z",
+        "updatedAt": "2021-05-22T02:21:23.153Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:21:23.153Z",
+        "firstPublishedAt": "2021-05-22T02:21:23.153Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Video Embed",
+      "description": "A video entry to embed in page content or a blog post.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "embedUrl",
+          "name": "Embed URL",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            },
+            {
+              "regexp": {
+                "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+                "flags": null
+              },
+              "message": "Enter the full embed URL with https."
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "blogPost",
+        "type": "ContentType",
+        "createdAt": "2021-05-22T02:21:21.832Z",
+        "updatedAt": "2021-05-22T02:21:22.801Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:21:22.801Z",
+        "firstPublishedAt": "2021-05-22T02:21:22.801Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Blog Post",
+      "description": "A blog post.",
+      "fields": [
+        {
+          "id": "date",
+          "name": "Date",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "author",
+          "name": "Author",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "person"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "excerpt",
+          "name": "Excerpt",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "tags",
+          "name": "Tags",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "externalUrl",
+          "name": "External Url",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "regexp": {
+                "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$",
+                "flags": null
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    }
+  ],
+  "tags": [
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "3jkbtkr4jli2",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2021-05-22T02:21:22.163Z",
+        "createdBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2021-05-22T02:21:26.099Z",
+        "updatedBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "pageContent",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "heroBanner",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "settings": {
+            "helpText": "This will show as the meta description for the page in search engine results."
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "settings": {
+            "helpText": "Start your slug with a '/'"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "3jkbtkr4jli2",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2021-05-22T02:21:22.541Z",
+        "createdBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2021-05-22T02:21:24.340Z",
+        "updatedBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "person",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "image",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "twitterUsername",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "gitHubUsername",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "twitchUsername",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "websiteUrl",
+          "widgetId": "urlEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "3jkbtkr4jli2",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2021-05-22T02:21:23.886Z",
+        "createdBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2021-05-22T02:21:26.182Z",
+        "updatedBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "codeBlock",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "description",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "language",
+          "widgetId": "dropdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "code",
+          "settings": {
+            "helpText": "You do not need to wrap your code in ```"
+          },
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "3jkbtkr4jli2",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2021-05-22T02:21:23.573Z",
+        "createdBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2021-05-22T02:21:26.198Z",
+        "updatedBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "heroBanner",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "image",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "headline",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "subHeading",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "ctaText",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "externalLink",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "internalLink",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "3jkbtkr4jli2",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2021-05-22T02:21:23.224Z",
+        "createdBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2021-05-22T02:21:26.177Z",
+        "updatedBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "videoEmbed",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "settings": {
+            "helpText": "This is the text that will appear in the title attribute in the HTML."
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "embedUrl",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "3jkbtkr4jli2",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2021-05-22T02:21:22.925Z",
+        "createdBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2021-05-22T02:21:26.186Z",
+        "updatedBy": {
+          "sys": {
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "blogPost",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "date",
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "author",
+          "widgetId": "entryCardEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "excerpt",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "tags",
+          "widgetId": "tagEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "externalUrl",
+          "widgetId": "urlEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "1QjbbAZAH7X8ZQJqrn60V0",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:12.343Z",
+        "updatedAt": "2021-05-22T02:22:24.391Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:24.391Z",
+        "firstPublishedAt": "2021-05-22T02:22:24.391Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "RSS article: step 2"
+        },
+        "language": {
+          "en-US": "javascript"
+        },
+        "code": {
+          "en-US": "import ContentfulApi from \"@utils/ContentfulApi\";\n\nexport default function buildRss(props) {\n\n  return (\n    //...\n  )\n}\n\nfunction buildRssItems(posts) {\n\n  // This is the minimum data required for an RSS feed item\n\n  return posts\n    .map((post) => {\n      return `\n        <item>\n          <title>${post.title}</title>\n          <description>${post.excerpt}</description>\n          <author>${Config.site.email} (${Config.site.owner})</author>\n          <link>https://${Config.site.domain}/blog/${post.slug}</link>\n          <guid>https://${Config.site.domain}/blog/${post.slug}</guid>\n          <pubDate>${post.date}</pubDate>\n        </item>\n        `;\n    })\n    .join(\"\");\n}\n\nexport async function getStaticProps() {\n  const posts = await ContentfulApi.getAllBlogPosts();\n\n  const feedString = `<?xml version=\"1.0\"?>\n    <rss version=\"2.0\" \n      xmlns:atom=\"http://www.w3.org/2005/Atom\">\n      <channel>\n        <title>${Config.site.title}</title>\n        <link>https://${Config.site.domain}</link>\n        <atom:link \n          href=\"https://${Config.site.domain}/feed.xml\" \n          rel=\"self\" \n          type=\"application/rss+xml\" />\n        <description>${Config.site.feedDescription}</description>\n\n        ${buildRssItems(posts)}\n\n    </channel>\n    </rss>`;\n\n  //...\n}"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "7IlpoqahKivwG5TK6mEfuu",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:12.349Z",
+        "updatedAt": "2021-05-22T02:22:23.840Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:23.840Z",
+        "firstPublishedAt": "2021-05-22T02:22:23.840Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "RSS article: step 3"
+        },
+        "language": {
+          "en-US": "javascript"
+        },
+        "code": {
+          "en-US": "import ContentfulApi from \"@utils/ContentfulApi\";\nimport fs from \"fs\";\n\nexport default function buildRss(props) {\n  // we can return null here if we don't want to\n  // show any content on this page\n  return null\n}\n\nexport async function getStaticProps() {\n\n //...\n\n const feedString = ...\n\n  fs.writeFile(\"./public/feed.xml\", feedString, function (err) {\n    if (err) {\n      console.log(\"Could not write to feed.xml\");\n    }\n\n    console.log(\"feed.xml written to ./public!\");\n  });\n\n  return {\n    props: {\n      feedString, // return some data to the page\n    },\n  };\n}"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "3yauLlfsyuGyWtcM9Wlqaz",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:12.355Z",
+        "updatedAt": "2021-05-24T19:44:52.930Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2021-05-24T19:44:52.930Z",
+        "firstPublishedAt": "2021-05-22T02:22:17.089Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "heroBanner"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Home hero banner"
+        },
+        "image": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "48tx2UTZfGBRiJZTo9z1kV"
+            }
+          }
+        },
+        "headline": {
+          "en-US": "Fork me on GitHub"
+        },
+        "subHeading": {
+          "en-US": "Get started with a Blazor and Contentful blog by using the starter repository that powers this site"
+        },
+        "ctaText": {
+          "en-US": "Go to GitHub"
+        },
+        "externalLink": {
+          "en-US": "https://github.com/whitep4nth3r/nextjs-contentful-blog-starter"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "5VO3pGyxM4uhlTu9MIZWGM",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:12.360Z",
+        "updatedAt": "2021-05-24T22:03:12.457Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2021-05-24T22:03:12.457Z",
+        "firstPublishedAt": "2021-05-22T02:22:25.332Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 6,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "pageContent"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Blog"
+        },
+        "description": {
+          "en-US": "Blog articles for the Blazor and Contentful starter"
+        },
+        "slug": {
+          "en-US": "/blog"
+        },
+        "body": {
+          "en-US": {
+            "nodeType": "document",
+            "data": {
+            },
+            "content": [
+              {
+                "nodeType": "heading-1",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Articles",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ],
+                "data": {
+                }
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Check out some articles about Blazor, Contentful, and how you can get started with your own blog site.",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ],
+                "data": {
+                }
+              },
+              {
+                "nodeType": "hr",
+                "content": [
+                ],
+                "data": {
+                }
+              },
+              {
+                "nodeType": "paragraph",
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ],
+                "data": {
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "6Z1u3c0KAL1qlEcbbimyY1",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:12.361Z",
+        "updatedAt": "2021-05-24T20:36:49.624Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 82,
+        "publishedAt": "2021-05-24T20:36:49.624Z",
+        "firstPublishedAt": "2021-05-22T02:22:25.663Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 42,
+        "version": 83,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "pageContent"
+          }
+        }
+      },
+      "fields": {
+        "heroBanner": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3yauLlfsyuGyWtcM9Wlqaz"
+            }
+          }
+        },
+        "title": {
+          "en-US": "Blazor + Contentful Blog Starter"
+        },
+        "description": {
+          "en-US": "Welcome to the Blazor Contentful blog starter"
+        },
+        "slug": {
+          "en-US": "/"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "2vA0ycejmjNMA0gR0Apo9I",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:12.362Z",
+        "updatedAt": "2021-05-22T02:22:24.994Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:24.994Z",
+        "firstPublishedAt": "2021-05-22T02:22:24.994Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "RSS article: step 1"
+        },
+        "language": {
+          "en-US": "javascript"
+        },
+        "code": {
+          "en-US": "import ContentfulApi from \"@utils/ContentfulApi\";\n\nexport default function buildRss(props) {\n\n  return (\n    //...\n  )\n}\n\nexport async function getStaticProps() {\n  const posts = await ContentfulApi.getAllBlogPosts();\n\n  //...\n}"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "2LsgskKLranjOxud3GDP9m",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:14.417Z",
+        "updatedAt": "2021-05-24T22:51:16.437Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2021-05-24T22:51:16.437Z",
+        "firstPublishedAt": "2021-05-22T02:22:18.730Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "npm run dev"
+        },
+        "language": {
+          "en-US": "bash-shell"
+        },
+        "code": {
+          "en-US": "dotnet watch run"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "6nVSeAEw8CAd2jkZh9DH7b",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:14.454Z",
+        "updatedAt": "2021-05-24T22:49:44.801Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2021-05-24T22:49:44.801Z",
+        "firstPublishedAt": "2021-05-22T02:22:19.067Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "Import full content model and and content command"
+        },
+        "language": {
+          "en-US": "bash-shell"
+        },
+        "code": {
+          "en-US": "cd Blazor.Contentful.Blog.Starter/setup\n\ncontentful space import --space-id SPACE_ID --content-file content-export.json"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "5Z9Kv3dhcTLSsn5rCrw02B",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:14.510Z",
+        "updatedAt": "2021-05-22T02:22:19.466Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:19.466Z",
+        "firstPublishedAt": "2021-05-22T02:22:19.466Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "GraphQL Rich Text response outline"
+        },
+        "language": {
+          "en-US": "javascript"
+        },
+        "code": {
+          "en-US": "\"body\": {\n  // JSON struction of the Rich Text field\n  \"json\": {\n    # ...\n  }\n  // all referenced assets/entries\n  \"links\": {\n    # ...\n  }\n}"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "3Br8vgZdciwZGOTpbmFnbH",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:14.519Z",
+        "updatedAt": "2021-05-24T23:01:04.907Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 17,
+        "publishedAt": "2021-05-24T23:01:04.907Z",
+        "firstPublishedAt": "2021-05-22T02:22:17.933Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 18,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "blogPost"
+          }
+        }
+      },
+      "fields": {
+        "date": {
+          "en-US": "2021-02-02T00:00+00:00"
+        },
+        "title": {
+          "en-US": "Importing the starter content model and content into your own Contentful space"
+        },
+        "slug": {
+          "en-US": "importing-the-starter-content-model-and-content-into-your-own-contentful-space"
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "556w2eIsidZbHaFES083x0"
+            }
+          }
+        },
+        "excerpt": {
+          "en-US": "Follow this quick setup guide to import the content model and example content into your Contentful space."
+        },
+        "tags": {
+          "en-US": [
+            "setup",
+            "contentful-cli"
+          ]
+        },
+        "body": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Once you've forked the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://github.com/canhorn/Blazor.Contentful.Blog.Starter"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "Blazor + Contentful Blog Starter",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " to your GitHub account, and have cloned it to your local machine using git or the ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://github.com/cli/cli"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "GitHub CLI",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", you're ready to learn how to use the Contentful CLI to import the provided content model and example content into your Contentful space.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                ],
+                "nodeType": "hr"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Configuring your development environment",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Set your environment variables",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "At the root of the project, create a new ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "value": "appsettings.Development.json",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " file. Add the following environment variable names to the file:",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "7wspktCychtnbZfqMxWc0M",
+                      "type": "Link",
+                      "linkType": "Entry"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-entry-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Using example content from Contentful",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "You will need to provided your own Contentful account.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Creating your Contentful account",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "To get started with your own Contentful space, ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://www.contentful.com/sign-up/"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "sign up for free",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ".",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Create a new space inside your Contentful account. Go to Settings > General Settings, and make a note of your space ID.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "n9ttJm8yPPW1oL94Q54Oa",
+                      "type": "Link",
+                      "linkType": "Asset"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-asset-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Generate a Content Delivery API access token for your Contentful space. ",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "6AEfji9xoRk8t5O9a9Egc1",
+                      "type": "Link",
+                      "linkType": "Asset"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-asset-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Add your space ID and access token(s) to your ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "value": "appsettings.Development.json",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " file.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                ],
+                "nodeType": "hr"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Importing the starter content model and example content into your own Contentful space",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "To get you up and running quickly on your own version of the application, you can use the Contentful CLI to import the content model and the example content from the starter into your own Contentful space — without touching the Contentful UI!",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Install the Contentful CLI",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Using homebrew:",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "4F60xQochsWb5AzuS823ua",
+                      "type": "Link",
+                      "linkType": "Entry"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-entry-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Using npm:",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "71EmQX9szltKsf30L7DOoh",
+                      "type": "Link",
+                      "linkType": "Entry"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-entry-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Using yarn:",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "4asDQz9mSWfQasUMmjqoN2",
+                      "type": "Link",
+                      "linkType": "Entry"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-entry-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Authenticate with the CLI",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Run ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "value": "contentful login",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " in your terminal and follow the instructions in your browser.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Import the content model and example content",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-3"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The following command in your terminal, ensuring you switch out SPACE_ID for your new space ID.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "6nVSeAEw8CAd2jkZh9DH7b",
+                      "type": "Link",
+                      "linkType": "Entry"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-entry-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "You should see this output in the terminal. The import will take around 1 minute to complete.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "6mj97xQ0wAT77wJ4wwUMnW",
+                      "type": "Link",
+                      "linkType": "Asset"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-asset-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Refresh Contentful in your browser, navigate to the content model tab, and you'll find the content types have been imported into your space. You'll find the example content by clicking on the content tab.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "32TfUzzA9DJK31UTFLQmp3",
+                      "type": "Link",
+                      "linkType": "Asset"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-asset-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Running the application in development",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Navigate to the project directory in a terminal window and run:",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                  "target": {
+                    "sys": {
+                      "id": "2LsgskKLranjOxud3GDP9m",
+                      "type": "Link",
+                      "linkType": "Entry"
+                    }
+                  }
+                },
+                "content": [
+                ],
+                "nodeType": "embedded-entry-block"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "59hJ3cbzJD6u4rN5zTVcxs",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:14.726Z",
+        "updatedAt": "2021-05-22T02:22:20.665Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:20.665Z",
+        "firstPublishedAt": "2021-05-22T02:22:20.665Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "Example code block"
+        },
+        "language": {
+          "en-US": "javascript"
+        },
+        "code": {
+          "en-US": "/*\n * Format a blog post published date for a human to read.\n * Output is e.g. 16 Feb 2020\n */\n\nexport function formatPublishedDateForDisplay(dateString) {\n  const timestamp = Date.parse(dateString);\n  const date = new Date(timestamp);\n  return `${date.getDate()} ${getMonthStringFromInt(\n    date.getMonth(),\n  )} ${date.getFullYear()}`;\n}"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "5228EMw7XpxmDen9zgHyci",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:14.733Z",
+        "updatedAt": "2021-05-22T02:22:21.046Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:21.046Z",
+        "firstPublishedAt": "2021-05-22T02:22:21.046Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "videoEmbed"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Example video embed"
+        },
+        "embedUrl": {
+          "en-US": "https://www.youtube.com/embed/97Hg0OYFC0w"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "1R2Kh2xE4XOibvX8kJsbgX",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:15.113Z",
+        "updatedAt": "2021-05-22T02:22:20.342Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:20.342Z",
+        "firstPublishedAt": "2021-05-22T02:22:20.342Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "Rich text embedded entries and assets example"
+        },
+        "language": {
+          "en-US": "javascript"
+        },
+        "code": {
+          "en-US": "import { documentToReactComponents } from \"@contentful/rich-text-react-renderer\";\nimport { BLOCKS } from \"@contentful/rich-text-types\";\n\n// Create a bespoke renderOptions object to target BLOCKS.EMBEDDED_ENTRY (linked entries e.g. code blocks)\n// and BLOCKS.EMBEDDED_ASSET (linked assets e.g. images)\n\nfunction renderOptions(links) {\n  // create an asset block map\n  const assetBlockMap = new Map();\n  // loop through the assets and add them to the map\n  for (const asset of links.assets.block) {\n    assetBlockMap.set(asset.sys.id, asset);\n  }\n\n  // create an entry block map\n  const entryBlockMap = new Map();\n  // loop through the assets and add them to the map\n  for (const entry of links.entries.block) {\n    entryBlockMap.set(entry.sys.id, entry);\n  }\n\n  return {\n    // other options...\n\n    renderNode: {\n      // other options...\n\n      [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {\n        // find the entry in the entryBlockMap by ID\n        const entry = entryBlockMap.get(node.data.target.sys.id);\n\n        // render the entries as needed by looking at the __typename \n        // referenced in the GraphQL query\n        if (entry.__typename === \"CodeBlock\") {\n          return (\n            <pre>\n              <code>{entry.code}</code>\n            </pre>\n          );\n        }\n\n       if (entry.__typename === \"VideoEmbed\") {\n         return (\n            <iframe\n              src={entry.embedUrl}\n              height=\"100%\"\n              width=\"100%\"\n              frameBorder=\"0\"\n              scrolling=\"no\"\n              title={entry.title}\n              allowFullScreen={true}\n            />\n          );\n        }\n\n      },\n      [BLOCKS.EMBEDDED_ASSET]: (node, next) => {\n        // find the asset in the assetBlockMap by ID\n        const asset = assetBlockMap.get(node.data.target.sys.id);\n\n        // render the asset accordingly\n        return (\n          <img src={asset.url} alt=\"My image alt text\" />\n        );\n      },\n    },\n  };\n}\n\n// Render post.body.json to the DOM using\n// documentToReactComponents from \"@contentful/rich-text-react-renderer\"\n\nexport default function BlogPost(props) {\n  const { post } = props;\n\n  return <>{documentToReactComponents(post.body.json, renderOptions(post.body.links))}</>;\n}"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "7wspktCychtnbZfqMxWc0M",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:15.378Z",
+        "updatedAt": "2021-05-24T22:47:12.393Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 18,
+        "publishedAt": "2021-05-24T22:47:12.393Z",
+        "firstPublishedAt": "2021-05-22T02:22:22.857Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 19,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "Importing starter content model: create appsettings.Development.json"
+        },
+        "language": {
+          "en-US": "javascript"
+        },
+        "code": {
+          "en-US": "{\n    \"ContentfulOptions\": {\n        \"DeliveryApiKey\": \"<Your Deliver Api Key HERE>\",\n        \"PreviewApiKey\": \"<Your Preview Api Key HERE>\",\n        \"SpaceId\": \"<Your Space Id HERE>\"\n    },\n    \"DetailedErrors\": true,\n    \"Logging\": {\n        \"LogLevel\": {\n            \"Default\": \"Information\",\n            \"Microsoft\": \"Warning\",\n            \"Microsoft.Hosting.Lifetime\": \"Information\"\n        }\n    }\n}"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "AQxcEJMN4cUKN3JmpWfwI",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:15.665Z",
+        "updatedAt": "2021-05-22T02:22:23.182Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:23.182Z",
+        "firstPublishedAt": "2021-05-22T02:22:23.182Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "Importing starter content model: install deps"
+        },
+        "language": {
+          "en-US": "bash-shell"
+        },
+        "code": {
+          "en-US": "cd nextjs-contentful-blog-starter\nnpm install"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "5nx0Md2Abyp5O7eA0TDvAT",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:15.940Z",
+        "updatedAt": "2021-05-22T02:22:23.519Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:23.519Z",
+        "firstPublishedAt": "2021-05-22T02:22:23.519Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "RSS article: step 4"
+        },
+        "language": {
+          "en-US": "markup"
+        },
+        "code": {
+          "en-US": "<link\n  rel=\"alternate\"\n  type=\"application/rss+xml\"\n  title=\"RSS Feed\"\n  href=\"https://example.com/feed.xml\"\n />"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "556w2eIsidZbHaFES083x0",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:16.443Z",
+        "updatedAt": "2021-05-24T22:40:21.369Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2021-05-24T22:40:21.369Z",
+        "firstPublishedAt": "2021-05-22T02:22:19.866Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "person"
+          }
+        }
+      },
+      "fields": {
+        "image": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "rImaN1nOhnl7aJ4OYwbOp"
+            }
+          }
+        },
+        "name": {
+          "en-US": "Cody Merritt Anhorn"
+        },
+        "description": {
+          "en-US": "A Engineer with a passion for Platform Architecture and Tool Development. "
+        },
+        "twitterUsername": {
+          "en-US": "CodyAnhorn"
+        },
+        "gitHubUsername": {
+          "en-US": "canhorn"
+        },
+        "twitchUsername": {
+          "en-US": "canhorn"
+        },
+        "websiteUrl": {
+          "en-US": "https://codyanhorn.tech"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "5tKcbUNlvJlTCAM5Cpp7r7",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:16.668Z",
+        "updatedAt": "2021-05-24T22:04:27.630Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2021-05-24T22:04:27.630Z",
+        "firstPublishedAt": "2021-05-22T02:22:21.366Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "Importing starter content model: run import"
+        },
+        "language": {
+          "en-US": "bash-shell"
+        },
+        "code": {
+          "en-US": "cd blazor-contentful-blog-starter/Setup\n\ncontentful space import --space-id SPACE_ID --content-file content-model.json\n"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "71EmQX9szltKsf30L7DOoh",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:16.683Z",
+        "updatedAt": "2021-05-22T02:22:22.146Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:22.146Z",
+        "firstPublishedAt": "2021-05-22T02:22:22.146Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "Importing starter content model: npm install -g contentful-cli"
+        },
+        "language": {
+          "en-US": "bash-shell"
+        },
+        "code": {
+          "en-US": "npm install -g contentful-cli"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "4asDQz9mSWfQasUMmjqoN2",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:16.742Z",
+        "updatedAt": "2021-05-22T02:22:21.769Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:21.769Z",
+        "firstPublishedAt": "2021-05-22T02:22:21.769Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "Importing starter content model: yarn global add contentful-cli"
+        },
+        "language": {
+          "en-US": "bash-shell"
+        },
+        "code": {
+          "en-US": "yarn global add contentful-cli"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "4F60xQochsWb5AzuS823ua",
+        "type": "Entry",
+        "createdAt": "2021-05-22T02:22:16.786Z",
+        "updatedAt": "2021-05-22T02:22:22.522Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-05-22T02:22:22.522Z",
+        "firstPublishedAt": "2021-05-22T02:22:22.522Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "codeBlock"
+          }
+        }
+      },
+      "fields": {
+        "description": {
+          "en-US": "Importing starter content model: brew install contentful-cli"
+        },
+        "language": {
+          "en-US": "bash-shell"
+        },
+        "code": {
+          "en-US": "brew install contentful-cli"
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "48tx2UTZfGBRiJZTo9z1kV",
+        "type": "Asset",
+        "createdAt": "2021-05-22T02:21:26.503Z",
+        "updatedAt": "2021-05-22T02:22:10.549Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2021-05-22T02:22:10.549Z",
+        "firstPublishedAt": "2021-05-22T02:22:10.549Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "jeremy-thomas-colourful-galaxy-unsplash"
+        },
+        "description": {
+          "en-US": "Blue and purple galaxy digital wallpaper"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/3jkbtkr4jli2/48tx2UTZfGBRiJZTo9z1kV/a51ff3a678b1b6224f76971b85ab3b36/jeremy-thomas-E0AHdsENmDg-unsplash.jpg",
+            "details": {
+              "size": 3871388,
+              "image": {
+                "width": 5005,
+                "height": 3417
+              }
+            },
+            "fileName": "jeremy-thomas-E0AHdsENmDg-unsplash.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "n9ttJm8yPPW1oL94Q54Oa",
+        "type": "Asset",
+        "createdAt": "2021-05-22T02:21:26.504Z",
+        "updatedAt": "2021-05-22T02:22:11.753Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2021-05-22T02:22:11.753Z",
+        "firstPublishedAt": "2021-05-22T02:22:11.753Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "space_id"
+        },
+        "description": {
+          "en-US": "A screenshot of where to find the space ID in the Contentful UI"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/3jkbtkr4jli2/n9ttJm8yPPW1oL94Q54Oa/acc671f799331e94859fb204daa13d28/space_id.png",
+            "details": {
+              "size": 30709,
+              "image": {
+                "width": 810,
+                "height": 340
+              }
+            },
+            "fileName": "space_id.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "6mj97xQ0wAT77wJ4wwUMnW",
+        "type": "Asset",
+        "createdAt": "2021-05-22T02:21:28.160Z",
+        "updatedAt": "2021-05-22T02:22:10.822Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2021-05-22T02:22:10.822Z",
+        "firstPublishedAt": "2021-05-22T02:22:10.822Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "import_command_terminal"
+        },
+        "description": {
+          "en-US": "A screenshot of the contentful space import command running in a terminal"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/3jkbtkr4jli2/6mj97xQ0wAT77wJ4wwUMnW/e74fd9a75f55edc0d16545c06e06f22b/screenshot_import_terminal.png",
+            "details": {
+              "size": 126222,
+              "image": {
+                "width": 575,
+                "height": 883
+              }
+            },
+            "fileName": "screenshot_import_terminal.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "32TfUzzA9DJK31UTFLQmp3",
+        "type": "Asset",
+        "createdAt": "2021-05-22T02:21:28.661Z",
+        "updatedAt": "2021-05-22T02:22:11.998Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2021-05-22T02:22:11.998Z",
+        "firstPublishedAt": "2021-05-22T02:22:11.998Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "content_model"
+        },
+        "description": {
+          "en-US": "A screenshot of the content model for the Next.js and Contentful blog starter"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/3jkbtkr4jli2/32TfUzzA9DJK31UTFLQmp3/ecf431dc9900baad80e85407b82c8cd9/content_model.png",
+            "details": {
+              "size": 335477,
+              "image": {
+                "width": 3570,
+                "height": 1540
+              }
+            },
+            "fileName": "content_model.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "rImaN1nOhnl7aJ4OYwbOp",
+        "type": "Asset",
+        "createdAt": "2021-05-22T02:21:28.675Z",
+        "updatedAt": "2021-05-24T22:39:05.881Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2021-05-24T22:39:05.881Z",
+        "firstPublishedAt": "2021-05-22T02:22:11.134Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Cody"
+        },
+        "description": {
+          "en-US": "A headshot of Cody wearing blue on a tan patterned background."
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/3jkbtkr4jli2/rImaN1nOhnl7aJ4OYwbOp/510c00b1437b2a13831e27cd39f286f6/20191016_112231__2_-204-.jpg",
+            "details": {
+              "size": 1155101,
+              "image": {
+                "width": 1887,
+                "height": 2948
+              }
+            },
+            "fileName": "20191016_112231 (2)[204].jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "id": "6AEfji9xoRk8t5O9a9Egc1",
+        "type": "Asset",
+        "createdAt": "2021-05-22T02:21:28.682Z",
+        "updatedAt": "2021-05-22T02:22:11.386Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2021-05-22T02:22:11.386Z",
+        "firstPublishedAt": "2021-05-22T02:22:11.386Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "access token"
+        },
+        "description": {
+          "en-US": "A screenshot of where to generate an access token in the Contentful UI"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/3jkbtkr4jli2/6AEfji9xoRk8t5O9a9Egc1/dc981695326b212e123d979859db5cab/access_token.png",
+            "details": {
+              "size": 65288,
+              "image": {
+                "width": 800,
+                "height": 540
+              }
+            },
+            "fileName": "access_token.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    }
+  ],
+  "locales": [
+    {
+      "name": "English (United States)",
+      "code": "en-US",
+      "fallbackCode": null,
+      "default": true,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": false,
+      "sys": {
+        "type": "Locale",
+        "id": "7s6yqQgB6nzihFSnf3OhA7",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "master",
+            "uuid": "9c54fb0b-890a-46d0-ad47-e08e5b68475f"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "createdAt": "2021-05-22T02:04:25Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedAt": "2021-05-22T02:04:25Z"
+      }
+    }
+  ],
+  "webhooks": [
+    {
+      "name": "cache-buster",
+      "url": "https://a8f0e1ddb425.ngrok.io/webhook/cache-buster",
+      "httpBasicUsername": null,
+      "topics": [
+        "*.*"
+      ],
+      "filters": null,
+      "transformation": null,
+      "sys": {
+        "type": "WebhookDefinition",
+        "id": "6K7uJfuKSISvWfEEjc3Um6",
+        "version": 2,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "createdAt": "2021-05-23T15:17:09Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedAt": "2021-05-24T19:40:18Z"
+      },
+      "headers": [
+      ]
+    },
+    {
+      "name": "cache-buster (azure)",
+      "url": "https://blazor-contentful-blog-starter.azurewebsites.net/webhook/cache-buster",
+      "httpBasicUsername": null,
+      "topics": [
+        "*.*"
+      ],
+      "filters": null,
+      "transformation": null,
+      "sys": {
+        "type": "WebhookDefinition",
+        "id": "4bhsD0rTggbHfa8HvQ9X8U",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "createdAt": "2021-05-24T20:35:44Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedAt": "2021-05-24T20:35:44Z"
+      },
+      "headers": [
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "name": "Editor",
+      "description": "Allows editing, publishing and archiving of content",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": "all",
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": "all",
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "permissions": {
+        "ContentModel": [
+          "read"
+        ],
+        "Settings": [
+        ],
+        "ContentDelivery": [
+        ],
+        "Environments": [
+        ],
+        "EnvironmentAliases": [
+        ],
+        "Tags": [
+        ]
+      },
+      "sys": {
+        "type": "Role",
+        "id": "7s7nzAyY63cLYw3wtG0UFR",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "3jkbtkr4jli2"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "createdAt": "2021-05-22T02:04:25Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7eZ6Dto6vBDNnrbkqE3nbq"
+          }
+        },
+        "updatedAt": "2021-05-22T02:04:25Z"
+      }
+    }
+  ]
 }
