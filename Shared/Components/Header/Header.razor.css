@@ -10,20 +10,20 @@
     padding: 1rem;
 }
 
-.header__logo-container-link {
+::deep .header__logo-container-link {
     text-decoration: none;
     display: inline-flex;
     width: 100%;
     justify-content: center;
 }
 
-    .header__logo-container-link:focus {
+    ::deep .header__logo-container-link:focus {
         outline-width: 0;
         box-shadow: var(--color-primary) 0 0 0 0.25rem;
         transition: box-shadow var(--global-transition-time) ease 0s;
     }
 
-        .header__logo-container-link:focus:active {
+        ::deep .header__logo-container-link:focus:active {
             outline-width: 0;
             box-shadow: unset;
         }
