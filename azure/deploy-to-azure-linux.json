@@ -38,6 +38,16 @@
                 "description": "The SKU of App Service Plan."
             }
         },
+        "linuxFxVersion": {
+            "type": "string",
+            "defaultValue": "DOTNETCORE|5.0",
+            "allowedValues": [
+                "DOTNETCORE|5.0"
+            ],
+            "metadata": {
+                "description": "The Runtime stack of current web app"
+            }
+        },
         "repoUrl": {
             "type": "string",
             "defaultValue": "https://github.com/canhorn/Blazor.Contentful.Blog.Starter",
@@ -80,22 +90,29 @@
     "resources": [
         {
             "type": "Microsoft.Web/serverfarms",
-            "apiVersion": "2018-02-01",
+            "apiVersion": "2020-06-01",
             "name": "[variables('appServicePlanPortalName')]",
             "location": "[parameters('location')]",
             "sku": {
                 "name": "[parameters('sku')]"
+            },
+            "kind": "linux",
+            "properties": {
+                "reserved": true
             }
         },
         {
             "type": "Microsoft.Web/sites",
-            "apiVersion": "2018-11-01",
+            "apiVersion": "2020-06-01",
             "name": "[parameters('webAppName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
             ],
             "properties": {
+                "siteConfig": {
+                    "linuxFxVersion": "[parameters('linuxFxVersion')]"
+                },
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
             },
             "resources": [
@@ -129,29 +146,6 @@
                     }
                 }
             ]
-        },
-        {
-            "type": "Microsoft.Web/sites/config",
-            "apiVersion": "2020-06-01",
-            "name": "[concat(parameters('webAppName'), '/web')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('webAppName'))]"
-            ],
-            "properties": {
-                "netFrameworkVersion": "v5.0",
-                "defaultDocuments": [
-                    "Default.htm",
-                    "Default.html",
-                    "Default.asp",
-                    "index.htm",
-                    "index.html",
-                    "iisstart.htm",
-                    "default.aspx",
-                    "index.php",
-                    "hostingstart.html"
-                ]
-            }
         }
     ]
 }
