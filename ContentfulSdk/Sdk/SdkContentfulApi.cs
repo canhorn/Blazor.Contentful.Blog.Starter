@@ -52,9 +52,7 @@
             return Task.FromResult(true);
         }
 
-        public async Task<IEnumerable<BlogPost>> GetAllBlogPosts(
-            ContentfulOptions options = default
-        )
+        public async Task<IEnumerable<BlogPost>> GetAllBlogPosts()
         {
             try
             {
@@ -65,8 +63,7 @@
                 while (shouldQueryMorePosts)
                 {
                     var (Total, Items) = await GetPaginatedBlogPosts(
-                        page,
-                        options
+                        page
                     );
                     postList.AddRange(
                         Items
@@ -87,9 +84,7 @@
             }
         }
 
-        public async Task<IEnumerable<string>> GetAllPostSlugs(
-            ContentfulOptions options = default
-        )
+        public async Task<IEnumerable<string>> GetAllPostSlugs()
         {
             try
             {
@@ -100,8 +95,7 @@
                 while (shouldQueryMoreSlugs)
                 {
                     var (Total, Items) = await GetPaginatedBlogPosts(
-                        page,
-                        options
+                        page
                     );
                     slugList.AddRange(
                         Items.Select(
@@ -126,8 +120,7 @@
         }
 
         public async Task<PageContent?> GetPageContentBySlug(
-            string slug,
-            ContentfulOptions options = default
+            string slug
         )
         {
             try
@@ -178,8 +171,7 @@
         }
 
         public async Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedPostSummaries(
-            int page,
-            ContentfulOptions options = default
+            int page
         )
         {
             try
@@ -240,8 +232,7 @@
         }
 
         public async Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedBlogPosts(
-            int page,
-            ContentfulOptions options = default
+            int page
         )
         {
             try
@@ -303,8 +294,7 @@
         }
 
         public async Task<BlogPost?> GetPostBySlug(
-            string slug,
-            ContentfulOptions options = default
+            string slug       
         )
         {
             try
@@ -388,16 +378,9 @@
             }
         }
 
-        public Task GetTotalPostsNumber()
+        public async Task<IEnumerable<BlogPost>> GetAllCachedBlogPosts()
         {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<BlogPost>> GetAllCachedBlogPosts(
-            ContentfulOptions options = default
-        )
-        {
-            var posts = await GetAllBlogPosts(options);
+            var posts = await GetAllBlogPosts();
             if (!GetAllCachedBlogPostsCache.IsEmpty)
             {
                 return GetAllCachedBlogPostsCache;

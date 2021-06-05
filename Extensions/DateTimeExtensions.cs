@@ -50,6 +50,6 @@ public static class DateTimeExtensions
         int month
     )
     {
-        return Months[month - 1];;
+        return Months[month - 1];
     }
 }

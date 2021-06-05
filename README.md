@@ -121,3 +121,20 @@ dotnet watch run
 After your Azure instance, or other chosen deployment method, you will need to register a WebHook, ```https://<your-domain>/webhook/cache-buster``` with Contentful. This WebHook is used by the Blazor Contentful Blog Starter application to know when it should clear its cache and request fresh CMS data from Contentful.
 
 I will not go over this process on this repository, but you can check [Intro to webhooks](https://www.contentful.com/developers/docs/concepts/webhooks) for more details.
+
+## Preview Environments
+
+When you want to preview unpublished work from Contentful you will have to set the  ```ContentfulOptions__UsePreviewApi``` app setting to ```true```. (example below) This will enable Preview Mode application wide, and API calls will pull in unpublished work. 
+
+This works great for creating a separate deployment website you can do work right no and when WebHooks are setup you will see the changes in realtime. If you use a local deployment and Ngrok to proxy the WebHook you can even develop new features!
+
+~~~ json
+{
+    "ContentfulOptions": {
+        "DeliveryApiKey": "...",
+        "PreviewApiKey": "...",
+        "SpaceId": "...",
+        "UsePreviewApi": true
+    }
+}
+~~~
