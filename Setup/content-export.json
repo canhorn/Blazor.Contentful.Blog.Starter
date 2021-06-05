@@ -367,7 +367,7 @@
                 "graphql",
                 "react-jsx",
                 "react-tsx",
-                "bash-shell",
+                "bash",
                 "git",
                 "typescript",
                 "markup"
@@ -1834,7 +1834,7 @@
           "en-US": "npm run dev"
         },
         "language": {
-          "en-US": "bash-shell"
+          "en-US": "bash"
         },
         "code": {
           "en-US": "dotnet watch run"
@@ -1904,7 +1904,7 @@
           "en-US": "Import full content model and and content command"
         },
         "language": {
-          "en-US": "bash-shell"
+          "en-US": "bash"
         },
         "code": {
           "en-US": "cd Blazor.Contentful.Blog.Starter/setup\n\ncontentful space import --space-id SPACE_ID --content-file content-export.json"
@@ -3094,7 +3094,7 @@
           "en-US": "Importing starter content model: install deps"
         },
         "language": {
-          "en-US": "bash-shell"
+          "en-US": "bash"
         },
         "code": {
           "en-US": "cd nextjs-contentful-blog-starter\nnpm install"
@@ -3322,7 +3322,7 @@
           "en-US": "Importing starter content model: run import"
         },
         "language": {
-          "en-US": "bash-shell"
+          "en-US": "bash"
         },
         "code": {
           "en-US": "cd blazor-contentful-blog-starter/Setup\n\ncontentful space import --space-id SPACE_ID --content-file content-model.json\n"
@@ -3392,7 +3392,7 @@
           "en-US": "Importing starter content model: npm install -g contentful-cli"
         },
         "language": {
-          "en-US": "bash-shell"
+          "en-US": "bash"
         },
         "code": {
           "en-US": "npm install -g contentful-cli"
@@ -3462,7 +3462,7 @@
           "en-US": "Importing starter content model: yarn global add contentful-cli"
         },
         "language": {
-          "en-US": "bash-shell"
+          "en-US": "bash"
         },
         "code": {
           "en-US": "yarn global add contentful-cli"
@@ -3532,7 +3532,7 @@
           "en-US": "Importing starter content model: brew install contentful-cli"
         },
         "language": {
-          "en-US": "bash-shell"
+          "en-US": "bash"
         },
         "code": {
           "en-US": "brew install contentful-cli"
