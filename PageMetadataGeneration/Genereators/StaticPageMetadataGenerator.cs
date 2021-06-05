@@ -66,7 +66,7 @@
                 .Link(
                     "alterntive",
                     $"https://{_siteConfig.Site.Domain}/feed.xml",
-                    localizer["RSS Feed for {0}", _siteConfig.Site.Domain]
+                    localizer["RSS Feed for {0}", _siteConfig.Site.Domain]!
                         ?? $"RSS Feed For {_siteConfig.Site.Domain}",
                     "application/rss+xml"
                 )
@@ -175,11 +175,11 @@
                 var blogPageContent = blogResult;
                 var pageTitle = blogPageContent.Title.IsNotNullOrWhitespace()
                     ? blogPageContent.Title
-                    : localizer["Blog"]
+                    : localizer["Blog"]!
                         ?? "Blog";
                 var pageDescription = blogPageContent.Description.IsNotNullOrWhitespace()
                     ? blogPageContent.Description
-                    : localizer["Articles | Blazor Contentful blog starter"]
+                    : localizer["Articles | Blazor Contentful blog starter"]!
                         ?? "Articles | Blazor Contentful blog starter";
 
                 BuildPage(
@@ -201,7 +201,7 @@
                     BuildPage(
                         slug,
                         _siteConfig.Site.Title,
-                        localizer["{0} Page {1}", pageTitle, page]
+                        localizer["{0} Page {1}", pageTitle, page]!
                             ?? $"{pageTitle} Page {page}",
                         pageDescription,
                         $"{_siteConfig.GetSiteUrl(slug)}/page/{page}"

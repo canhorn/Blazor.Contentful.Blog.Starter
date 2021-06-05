@@ -128,8 +128,20 @@
   <data name="Follow me on Twitter" xml:space="preserve">
     <value>Follow me on Twitter</value>
   </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
   <data name="Next Page" xml:space="preserve">
     <value>Next Page</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Not Found</value>
+  </data>
+  <data name="Originally published on" xml:space="preserve">
+    <value>Originally published on</value>
   </data>
   <data name="Page {0} of {1}" xml:space="preserve">
     <value>Page {0} of {1}</value>
@@ -154,12 +166,24 @@
   <data name="The ASP.NET Blazor Logo." xml:space="preserve">
     <value>The ASP.NET Blazor Logo.</value>
   </data>
+  <data name="This page was Not Found" xml:space="preserve">
+    <value>This page was Not Found</value>
+  </data>
+  <data name="Twitch" xml:space="preserve">
+    <value>Twitch</value>
+  </data>
   <data name="Twitter" xml:space="preserve">
     <value>Twitter</value>
   </data>
   <data name="View the RSS feed of {0}" xml:space="preserve">
     <value>View the RSS feed of {0}</value>
     <comment>{0} is thet SiteConfig.Site.Domain.</comment>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="Welcome to the Blazor Contentful blog Starter" xml:space="preserve">
+    <value>Welcome to the Blazor Contentful blog Starter</value>
   </data>
   <data name="{0} Page {1}" xml:space="preserve">
     <value>{0} Page {1}</value>
