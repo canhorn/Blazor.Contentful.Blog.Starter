@@ -1,8 +1,5 @@
 ﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
     using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer.Renderers;
@@ -17,6 +14,9 @@
             _renderer = new HtmlRenderer();
             _renderer.AddRenderer(
                 new ContentfulBlocksEmbeddedEntryRender()
+            );
+            _renderer.AddRenderer(
+                new ContentfulLazyImageRender()
             );
         }
 

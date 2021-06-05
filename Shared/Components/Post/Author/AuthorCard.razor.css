@@ -18,11 +18,11 @@
         margin: 0;
     }
 
-.author__img {
+::deep .author__img {
     border-radius: 50%;
 }
 
-    .author__img.--sized {
+    ::deep .author__img.--sized {
         visibility: inherit;
         position: absolute;
         inset: 0px;

@@ -1,0 +1,8 @@
+﻿
+<img class="@(LazyLoad ? "lazy" : string.Empty) @(@class)"
+     src="@(LazyLoad ? "/images/placeholder-image.png" : src)"
+     data-src="@(src)"
+     srcset="@srcset"
+     loading="@loading"
+     decoding="@decoding"
+     @attributes="Attributes" />

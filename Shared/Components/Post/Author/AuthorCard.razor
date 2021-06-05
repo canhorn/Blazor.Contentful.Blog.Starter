@@ -5,11 +5,11 @@
     @if (Author.Image is not null)
     {
         <div class="author__img-container --sized">
-            <img class="author__img --sized"
-                 src="@(Author.Image.File.Url)"
-                 alt="@Author.Image.Description"
-                 height="@Author.Image.File.Details.Image.Height"
-                 width="@Author.Image.File.Details.Image.Width" />
+            <Image class="author__img --sized"
+                   src="@(Author.Image.File.Url)"
+                   alt="@Author.Image.Description"
+                   height="@Author.Image.File.Details.Image.Height"
+                   width="@Author.Image.File.Details.Image.Width" />
         </div>
     }
     <div class="author__details-container">

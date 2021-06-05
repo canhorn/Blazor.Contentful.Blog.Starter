@@ -2,7 +2,9 @@
 
 <svg xmlns="http://www.w3.org/2000/svg"
      viewBox="0 0 400 400"
-     class="header__logo">
+     class="header__logo"
+     height="64"
+     width="64">
     <g>
         <circle fill="#fff" cx="193.2" cy="197.5" r="184.7" />
         <path fill="#ffd75f"
@@ -17,6 +19,9 @@
               d="M159.1 273.3c-9.3 9.3-24.3 9.3-33.6 0-9.3-9.2-9.3-24.3 0-33.5 9.3-9.3 24.3-9.3 33.6 0 9.3 9.2 9.3 24.2 0 33.5z" />
     </g>
 </svg>
-<img class="header__logo" 
-     src="/images/blazor/logo-blazor.png" 
-     alt="@Localizer["The ASP.NET Blazor Logo."]">
+<Image class="header__logo"
+       LazyLoad="false"
+       src="/images/blazor/logo-blazor.png"
+       height="64"
+       width="64"
+       alt="@Localizer["The ASP.NET Blazor Logo."]" />

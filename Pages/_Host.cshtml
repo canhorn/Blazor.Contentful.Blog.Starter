@@ -71,6 +71,8 @@
             integrity="sha512-zc7WDnCM3aom2EziyDIRAtQg1mVXLdILE09Bo+aE1xk0AM2c2cVLfSW9NrxE5tKTX44WBY0Z2HClZ05ur9vB6A=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.staticaly.com/gh/malchata/yall.js/master/dist/yall.min.js"></script>
     <script>
         window.Prism = window.Prism || {};
         window.Prism.manual = true;
@@ -78,6 +80,11 @@
         function Prisim_highlightAll() {
             Prism.highlightAll();
         }
+        document.addEventListener("DOMContentLoaded", function () {
+            yall({
+                observeChanges: true
+            });
+        });
     </script>
 </body>
 </html>
