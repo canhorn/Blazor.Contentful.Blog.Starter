@@ -70,6 +70,7 @@
                     );
 
                     shouldQueryMorePosts = postList.Count < Total;
+                    page++;
                 }
 
                 return postList;
@@ -104,6 +105,7 @@
                     );
 
                     shouldQueryMoreSlugs = slugList.Count < Total;
+                    page++;
                 }
 
 
